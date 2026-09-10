@@ -2144,6 +2144,30 @@ main > section {
   letter-spacing: 0.4em;
   margin-top: 44px;
 }
+/* PC first-view composition: Figma 340:2 (1512 × 866). */
+@media (min-width: 768px) {
+  .intro-scope .hero-content {
+    transform: translateY(min(9.6svh, 83px));
+  }
+  .intro-scope .hero-brand {
+    transform: translateX(-22px);
+  }
+  .intro-scope .hero-space {
+    gap: 13px;
+    transform: translateY(11px);
+  }
+  .intro-scope .hero-space > span {
+    line-height: 49px;
+  }
+  .intro-scope .hero h1 {
+    font-size: clamp(28px, 2.5153vw, 38.031px);
+    line-height: 1.65653;
+    margin-top: 19px;
+  }
+  .intro-scope .hero-english {
+    margin-top: 23px;
+  }
+}
 .intro-scope .hero .scene-image,
 .intro-scope .altitude-scene[data-scene="0"] .scene-image {
   object-position: 43.5% center;
