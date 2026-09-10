@@ -233,6 +233,7 @@
   }
 
   function showAllContent() {
+    document.body.classList.remove("is-in-altitude");
     [hero, ...scenes].forEach((scene) => {
       scene.classList.remove("is-current");
       scene.removeAttribute("aria-hidden");
@@ -352,6 +353,10 @@
             scenes.length - 1,
           );
     if (index !== activeScene) setScene(index, now);
+    document.body.classList.toggle(
+      "is-in-altitude",
+      narrowScreen.matches && index >= 0 && window.scrollY < metrics.visionTop,
+    );
     syncSceneZoom();
     const startShade = 0.85;
     $(".hero-shade").style.opacity = String(
