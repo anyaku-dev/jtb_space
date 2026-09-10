@@ -2160,8 +2160,8 @@ main > section {
 }
 .intro-scope .altitude-caption {
   order: 2;
-  color: #000;
-  background: #fff;
+  color: #fff;
+  background: none;
   padding: 10px 11px;
   font-size: clamp(24px, 2.412vw, 36.472px);
   line-height: 1;
