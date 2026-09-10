@@ -2124,10 +2124,13 @@ main > section {
   letter-spacing: 0.4em;
   margin-top: 44px;
 }
-.intro-scope .hero .scene-image,
-.intro-scope .altitude-scene[data-scene="0"] .scene-image {
+.intro-scope .hero .scene-image {
   object-position: 55% center;
   transform: scale(1.17);
+}
+.intro-scope .altitude-scene[data-scene="0"] .scene-image {
+  object-position: 43.5% center;
+  transform: none;
 }
 .intro-scope .altitude-scene[data-scene="2"] .scene-image {
   transform: rotate(180deg) scale(1.21);
