@@ -627,8 +627,6 @@ main > section {
   right: 0;
   margin-inline: auto;
 }
-.is-animated .altitude-heading,
-.is-animated .altitude-english,
 .is-animated .altitude-note {
   opacity: 0;
   transform: translateY(25px);
@@ -636,8 +634,6 @@ main > section {
     opacity 0.55s ease,
     transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
-.is-animated .is-current .altitude-heading,
-.is-animated .is-current .altitude-english,
 .is-animated .is-current .altitude-note {
   opacity: 1;
   transform: none;
@@ -975,6 +971,8 @@ main > section {
   line-height: 1.4;
 }
 .domain h3 {
+  font-family: "Zen Old Mincho", serif;
+  font-weight: 400;
   font-size: 35px;
   line-height: 1.5;
   margin-top: 10px;
@@ -2124,10 +2122,7 @@ main > section {
   letter-spacing: 0.4em;
   margin-top: 44px;
 }
-.intro-scope .hero .scene-image {
-  object-position: 55% center;
-  transform: scale(1.17);
-}
+.intro-scope .hero .scene-image,
 .intro-scope .altitude-scene[data-scene="0"] .scene-image {
   object-position: 43.5% center;
   transform: none;
@@ -2213,13 +2208,10 @@ main > section {
 }
 .intro-scope .distance {
   font-size: calc(81.459px * var(--altitude-size-scale));
+  color: var(--color-primary);
 }
 .intro-scope .altitude-readout .altitude-value {
   width: calc(245px * var(--altitude-size-scale));
-}
-.intro-scope .is-ground .distance,
-.intro-scope [data-scene="0"] .distance {
-  color: var(--color-primary);
 }
 .intro-scope .journey.is-animated .altitude-copy {
   top: 50%;
@@ -2258,7 +2250,7 @@ main > section {
 }
 .intro-scope .vision-copy {
   font-size: clamp(26px, 2.7778vw, 42px);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 2.4524;
   letter-spacing: 0.1em;
 }

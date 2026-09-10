@@ -135,47 +135,49 @@
   const visionStage = $(".vision-stage");
   const visionContent = $(".vision-content");
   const visionCharacters = [];
-  const sceneCharacters = scenes.map(() => []);
 
   // Preserve complete paragraphs for assistive technology; only the visual text
   // is split into characters. Explicit line breaks keep the PC/SP composition.
-  [...$$(".vision-paragraph"), ...$$(".altitude-message")].forEach(
-    (paragraph) => {
-      const sceneIndex = scenes.indexOf(paragraph.closest(".altitude-scene"));
-      const characters =
-        sceneIndex >= 0 ? sceneCharacters[sceneIndex] : visionCharacters;
-      const spoken = paragraph.textContent;
-      const visual = document.createElement("span");
-      visual.setAttribute("aria-hidden", "true");
-      while (paragraph.firstChild) visual.append(paragraph.firstChild);
-      const accessible = document.createElement("span");
-      accessible.className = "sr-only";
-      accessible.textContent = spoken;
-      paragraph.append(accessible, visual);
-      const walker = document.createTreeWalker(visual, NodeFilter.SHOW_TEXT);
-      const textNodes = [];
-      while (walker.nextNode()) textNodes.push(walker.currentNode);
-      textNodes.forEach((node) => {
-        // Formatting whitespace between copy lines is not a revealable character.
-        if (sceneIndex >= 0 && !node.textContent.trim()) {
-          node.remove();
-          return;
-        }
-        const fragment = document.createDocumentFragment();
-        for (const character of node.textContent) {
-          const span = document.createElement("span");
-          span.className =
-            sceneIndex >= 0 ? "message-character" : "vision-character";
-          span.textContent = character;
-          if (sceneIndex >= 0)
-            span.style.setProperty("--character-index", characters.length);
-          characters.push(span);
-          fragment.append(span);
-        }
-        node.replaceWith(fragment);
-      });
-    },
-  );
+  [
+    ...$$(".vision-paragraph"),
+    ...$$(".altitude-message, .altitude-caption, .altitude-english"),
+  ].forEach((paragraph) => {
+    const sceneIndex = scenes.indexOf(paragraph.closest(".altitude-scene"));
+    // Each scene text starts its own identical stagger on the same scroll trigger.
+    const characters = sceneIndex >= 0 ? [] : visionCharacters;
+    if (paragraph.matches(".altitude-caption, .altitude-english"))
+      paragraph.textContent = paragraph.textContent.trim();
+    const spoken = paragraph.textContent;
+    const visual = document.createElement("span");
+    visual.setAttribute("aria-hidden", "true");
+    while (paragraph.firstChild) visual.append(paragraph.firstChild);
+    const accessible = document.createElement("span");
+    accessible.className = "sr-only";
+    accessible.textContent = spoken;
+    paragraph.append(accessible, visual);
+    const walker = document.createTreeWalker(visual, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+    textNodes.forEach((node) => {
+      // Formatting whitespace between copy lines is not a revealable character.
+      if (sceneIndex >= 0 && !node.textContent.trim()) {
+        node.remove();
+        return;
+      }
+      const fragment = document.createDocumentFragment();
+      for (const character of node.textContent) {
+        const span = document.createElement("span");
+        span.className =
+          sceneIndex >= 0 ? "message-character" : "vision-character";
+        span.textContent = character;
+        if (sceneIndex >= 0)
+          span.style.setProperty("--character-index", characters.length);
+        characters.push(span);
+        fragment.append(span);
+      }
+      node.replaceWith(fragment);
+    });
+  });
 
   // Scroll distances are independent of altitude magnitude. Adjust only here.
   const HERO_DISTANCE = 0.65;
