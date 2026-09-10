@@ -87,324 +87,328 @@
             />
           </div>
         </div>
-        <div class="journey" role="region" aria-label="地上から月面への体験">
-          <div class="journey-stage">
-            <section class="hero" aria-labelledby="hero-heading">
+        <div class="intro-scope">
+          <div class="intro-backdrop" aria-hidden="true">
+            <div class="intro-backdrop-stage">
               <img
-                class="scene-image"
-                src="assets/images/altitude-ground.webp"
+                class="intro-lunar-image"
+                src="assets/images/intro-moon.webp"
                 alt=""
                 width="1512"
-                height="858"
-                fetchpriority="high"
+                height="1079"
+                decoding="async"
               />
-              <div class="hero-shade"></div>
+            </div>
+          </div>
+          <div class="journey" role="region" aria-label="地上から月面への体験">
+            <div class="journey-stage">
+              <section class="hero" aria-labelledby="hero-heading">
+                <img
+                  class="scene-image"
+                  src="assets/images/intro-ground.webp"
+                  alt=""
+                  width="1512"
+                  height="858"
+                  fetchpriority="high"
+                />
+                <div class="hero-shade"></div>
 
-              <div class="hero-content">
-                <div class="hero-brand">
-                  <img
-                    class="hero-logo"
-                    src="assets/images/logo-jtb-white.webp"
-                    alt="JTB 感動のそばに、いつも。"
-                    width="208"
-                    height="130"
-                  /><img
-                    class="brand-cross"
-                    src="assets/icons/icon-brand-cross.svg"
-                    alt=""
-                    width="24"
-                    height="24"
-                  />
-                  <div class="hero-space">
-                    <span>宇宙</span><small lang="en">Space business</small>
+                <div class="hero-content">
+                  <div class="hero-brand">
+                    <img
+                      class="hero-logo"
+                      src="assets/images/logo-jtb-white.webp"
+                      alt="JTB 感動のそばに、いつも。"
+                      width="208"
+                      height="130"
+                    /><img
+                      class="brand-cross"
+                      src="assets/icons/intro-brand-cross.svg"
+                      alt=""
+                      width="24"
+                      height="54"
+                    />
+                    <div class="hero-space">
+                      <span>宇宙</span><small lang="en">Space business</small>
+                    </div>
                   </div>
+                  <h1 id="hero-heading">
+                    <span>宇宙交流時代に</span
+                    ><span>人々の想いや挑戦を実現する</span>
+                  </h1>
+                  <p class="hero-english" lang="en">
+                    "Realizing people's dreams and challenges in the era of
+                    space tourism."
+                  </p>
                 </div>
-                <h1 id="hero-heading">
-                  <span>宇宙交流時代に</span
-                  ><span>人々の想いや挑戦を実現する</span>
-                </h1>
-                <p class="hero-english" lang="en">
-                  "Realizing people's dreams and challenges in the era of space
-                  tourism."
+              </section>
+              <section
+                class="altitude-scene"
+                id="altitude-ground"
+                data-scene="0"
+                data-altitude="0"
+                aria-labelledby="altitude-title-ground"
+              >
+                <img
+                  class="scene-image"
+                  src="assets/images/intro-ground.webp"
+                  alt=""
+                  width="1512"
+                  height="858"
+                  decoding="async"
+                />
+                <div class="scene-shade"></div>
+                <div class="altitude-copy">
+                  <div class="altitude-measure">
+                    <p class="altitude-label">地上から約</p>
+                    <p class="altitude-value">
+                      <span class="sr-only">00km</span
+                      ><span class="distance" aria-hidden="true">00</span
+                      ><span aria-hidden="true">km</span>
+                    </p>
+                  </div>
+                  <div class="altitude-heading">
+                    <p class="altitude-english" lang="en">
+                      "JTB's space business begins on the ground."
+                    </p>
+                    <p class="altitude-caption">“地上”</p>
+                  </div>
+                  <h2 class="altitude-message" id="altitude-title-ground">
+                    <span class="message-line">JTBの宇宙事業は</span
+                    ><span class="message-line">地上からはじまる</span>
+                  </h2>
+                </div>
+              </section>
+              <section
+                class="altitude-scene"
+                id="altitude-10km"
+                data-scene="1"
+                data-altitude="10"
+                aria-labelledby="altitude-title-10km"
+              >
+                <img
+                  class="scene-image"
+                  src="assets/images/intro-10km.webp"
+                  alt=""
+                  width="1512"
+                  height="858"
+                  decoding="async"
+                />
+                <div class="scene-shade"></div>
+                <div class="altitude-copy">
+                  <div class="altitude-measure">
+                    <p class="altitude-label">地上から約</p>
+                    <p class="altitude-value">
+                      <span class="sr-only">10km</span
+                      ><span class="distance" aria-hidden="true">10</span
+                      ><span aria-hidden="true">km</span>
+                    </p>
+                  </div>
+                  <div class="altitude-heading">
+                    <p class="altitude-english" lang="en">
+                      "JTB's space business begins on the ground."
+                    </p>
+                    <p class="altitude-caption">“飛行機が飛ぶ高さ”</p>
+                  </div>
+                  <h2 class="altitude-message" id="altitude-title-10km">
+                    <span class="message-line">地球は</span
+                    ><span class="message-line">まだ青くない</span>
+                  </h2>
+                </div>
+              </section>
+              <section
+                class="altitude-scene"
+                id="altitude-25km"
+                data-scene="2"
+                data-altitude="25"
+                aria-labelledby="altitude-title-25km"
+              >
+                <img
+                  class="scene-image"
+                  src="assets/images/intro-25km.webp"
+                  alt=""
+                  width="1512"
+                  height="858"
+                  decoding="async"
+                />
+                <div class="scene-shade"></div>
+                <div class="altitude-copy">
+                  <div class="altitude-measure">
+                    <p class="altitude-label">地上から約</p>
+                    <p class="altitude-value">
+                      <span class="sr-only">25km</span
+                      ><span class="distance" aria-hidden="true">25</span
+                      ><span aria-hidden="true">km</span>
+                    </p>
+                  </div>
+                  <div class="altitude-heading">
+                    <p class="altitude-english" lang="en">
+                      "JTB's space business begins on the ground."
+                    </p>
+                    <p class="altitude-caption">“成層圏”</p>
+                  </div>
+                  <h2 class="altitude-message" id="altitude-title-25km">
+                    <span class="message-line">気球での宇宙遊覧は</span
+                    ><span class="message-line">実現間近</span>
+                  </h2>
+                </div>
+              </section>
+              <section
+                class="altitude-scene"
+                id="altitude-100km"
+                data-scene="3"
+                data-altitude="100"
+                aria-labelledby="altitude-title-100km"
+              >
+                <img
+                  class="scene-image"
+                  src="assets/images/intro-100km.webp"
+                  alt=""
+                  width="1512"
+                  height="858"
+                  decoding="async"
+                />
+                <div class="scene-shade"></div>
+                <div class="altitude-copy">
+                  <div class="altitude-measure">
+                    <p class="altitude-label">地上から約</p>
+                    <p class="altitude-value">
+                      <span class="sr-only">100km</span
+                      ><span class="distance" aria-hidden="true">100</span
+                      ><span aria-hidden="true">km</span>
+                    </p>
+                  </div>
+                  <div class="altitude-heading">
+                    <p class="altitude-english" lang="en">
+                      "JTB's space business begins on the ground."
+                    </p>
+                    <p class="altitude-caption">“宇宙”</p>
+                  </div>
+                  <h2 class="altitude-message" id="altitude-title-100km">
+                    <span class="message-line">宇宙空間へ</span
+                    ><span class="message-line">ようこそ</span>
+                  </h2>
+                </div>
+              </section>
+              <section
+                class="altitude-scene"
+                id="altitude-400km"
+                data-scene="4"
+                data-altitude="400"
+                aria-labelledby="altitude-title-400km"
+              >
+                <img
+                  class="scene-image"
+                  src="assets/images/intro-400km.webp"
+                  alt=""
+                  width="1512"
+                  height="858"
+                  decoding="async"
+                />
+                <div class="scene-shade"></div>
+                <div class="altitude-copy">
+                  <div class="altitude-measure">
+                    <p class="altitude-label">地上から約</p>
+                    <p class="altitude-value">
+                      <span class="sr-only">400km</span
+                      ><span class="distance" aria-hidden="true">400</span
+                      ><span aria-hidden="true">km</span>
+                    </p>
+                  </div>
+                  <div class="altitude-heading">
+                    <p class="altitude-english" lang="en">
+                      "JTB's space business begins on the ground."
+                    </p>
+                    <p class="altitude-caption">“宇宙”</p>
+                  </div>
+                  <h2 class="altitude-message" id="altitude-title-400km">
+                    <span class="message-line">国際宇宙ステーションに</span
+                    ><span class="message-line">到達</span>
+                  </h2>
+                </div>
+              </section>
+              <section
+                class="altitude-scene"
+                id="altitude-moon"
+                data-scene="5"
+                data-altitude="380000"
+                aria-labelledby="altitude-title-moon"
+              >
+                <div class="altitude-copy">
+                  <div class="altitude-measure">
+                    <p class="altitude-label">地上から約</p>
+                    <p class="altitude-value">
+                      <span class="sr-only">38万km</span
+                      ><span class="distance" aria-hidden="true">38万</span
+                      ><span aria-hidden="true">km</span>
+                    </p>
+                  </div>
+                  <div class="altitude-heading">
+                    <p class="altitude-english" lang="en">
+                      "JTB's space business begins on the ground."
+                    </p>
+                    <p class="altitude-caption">“月面”</p>
+                  </div>
+                  <h2 class="altitude-message" id="altitude-title-moon">
+                    <span class="message-line">月面に到達</span>
+                  </h2>
+                </div>
+              </section>
+              <div class="altitude-readout altitude-measure" aria-hidden="true">
+                <p class="altitude-label">地上から約</p>
+                <p class="altitude-value">
+                  <span class="sr-only">00km</span
+                  ><span class="distance" aria-hidden="true">00</span
+                  ><span aria-hidden="true">km</span>
                 </p>
               </div>
-            </section>
-            <section
-              class="altitude-scene"
-              id="altitude-ground"
-              data-scene="0"
-              data-altitude="0"
-              aria-labelledby="altitude-title-ground"
-            >
-              <img
-                class="scene-image"
-                src="assets/images/altitude-ground.webp"
-                alt=""
-                width="1512"
-                height="858"
-                decoding="async"
-              />
-              <div class="scene-shade"></div>
-              <div class="altitude-copy">
-                <div class="altitude-measure">
-                  <p class="altitude-label">地上から約</p>
-                  <p class="altitude-value">
-                    <span class="sr-only">00km</span
-                    ><span class="distance" aria-hidden="true">00</span
-                    ><span aria-hidden="true">km</span>
-                  </p>
-                </div>
-                <div class="altitude-heading">
-                  <p class="altitude-english" lang="en">
-                    "JTB's space business begins on the ground."
-                  </p>
-                  <h2 id="altitude-title-ground">
-                    <span
-                      >JTBの宇宙事業は<span class="sp-break"></span
-                      >地上からはじまる</span
-                    >
-                  </h2>
-                </div>
-              </div>
-            </section>
-            <section
-              class="altitude-scene"
-              id="altitude-10km"
-              data-scene="1"
-              data-altitude="10"
-              aria-labelledby="altitude-title-10km"
-            >
-              <img
-                class="scene-image"
-                src="assets/images/altitude-10km.webp"
-                alt=""
-                width="1512"
-                height="858"
-                decoding="async"
-              />
-              <div class="scene-shade"></div>
-              <div class="altitude-copy">
-                <div class="altitude-measure">
-                  <p class="altitude-label">地上から約</p>
-                  <p class="altitude-value">
-                    <span class="sr-only">10km</span
-                    ><span class="distance" aria-hidden="true">10</span
-                    ><span aria-hidden="true">km</span>
-                  </p>
-                </div>
-                <div class="altitude-heading">
-                  <p class="altitude-english" lang="en">
-                    "The Earth is not yet blue."
-                  </p>
-                  <h2 id="altitude-title-10km">
-                    <span>地球はまだ青くない</span>
-                  </h2>
-                </div>
-                <p class="altitude-note">飛行機が飛ぶ高さ</p>
-              </div>
-            </section>
-            <section
-              class="altitude-scene"
-              id="altitude-25km"
-              data-scene="2"
-              data-altitude="25"
-              aria-labelledby="altitude-title-25km"
-            >
-              <img
-                class="scene-image"
-                src="assets/images/altitude-25km.webp"
-                alt=""
-                width="1512"
-                height="858"
-                decoding="async"
-              />
-              <div class="scene-shade"></div>
-              <div class="altitude-copy">
-                <div class="altitude-measure">
-                  <p class="altitude-label">地上から約</p>
-                  <p class="altitude-value">
-                    <span class="sr-only">25km</span
-                    ><span class="distance" aria-hidden="true">25</span
-                    ><span aria-hidden="true">km</span>
-                  </p>
-                </div>
-                <div class="altitude-heading">
-                  <p class="altitude-english" lang="en">
-                    "Space tourism by balloon is close to reality."
-                  </p>
-                  <h2 id="altitude-title-25km">
-                    <span>気球での宇宙遊覧は実現間近</span>
-                  </h2>
-                </div>
-                <p class="altitude-note">成層圏</p>
-              </div>
-            </section>
-            <section
-              class="altitude-scene"
-              id="altitude-100km"
-              data-scene="3"
-              data-altitude="100"
-              aria-labelledby="altitude-title-100km"
-            >
-              <img
-                class="scene-image"
-                src="assets/images/altitude-100km.webp"
-                alt=""
-                width="1512"
-                height="858"
-                decoding="async"
-              />
-              <div class="scene-shade"></div>
-              <div class="altitude-copy">
-                <div class="altitude-measure">
-                  <p class="altitude-label">地上から約</p>
-                  <p class="altitude-value">
-                    <span class="sr-only">100km</span
-                    ><span class="distance" aria-hidden="true">100</span
-                    ><span aria-hidden="true">km</span>
-                  </p>
-                </div>
-                <div class="altitude-heading">
-                  <p class="altitude-english" lang="en">
-                    "Welcome to outer space."
-                  </p>
-                  <h2 id="altitude-title-100km">
-                    <span>宇宙空間へようこそ</span>
-                  </h2>
-                </div>
-                <p class="altitude-note altitude-note--long">
-                  国際航空連盟（FAI）などが定める基準では、高度100kmの「カーマン・ライン」が空と宇宙の境界とされています
-                </p>
-              </div>
-            </section>
-            <section
-              class="altitude-scene"
-              id="altitude-400km"
-              data-scene="4"
-              data-altitude="400"
-              aria-labelledby="altitude-title-400km"
-            >
-              <img
-                class="scene-image"
-                src="assets/images/altitude-400km.webp"
-                alt=""
-                width="1512"
-                height="858"
-                decoding="async"
-              />
-              <div class="scene-shade"></div>
-              <div class="altitude-copy">
-                <div class="altitude-measure">
-                  <p class="altitude-label">地上から約</p>
-                  <p class="altitude-value">
-                    <span class="sr-only">400km</span
-                    ><span class="distance" aria-hidden="true">400</span
-                    ><span aria-hidden="true">km</span>
-                  </p>
-                </div>
-                <div class="altitude-heading">
-                  <p class="altitude-english" lang="en">
-                    "Reached the International Space Station."
-                  </p>
-                  <h2 id="altitude-title-400km">
-                    <span>国際宇宙ステーションに到達</span>
-                  </h2>
-                </div>
-                <p class="altitude-note altitude-note--long">
-                  平均約400km（約400〜420km）<span class="sp-break"></span
-                  >円軌道（高度330～460kmの間で運用可能）<span
-                    class="sp-break"
-                  ></span
-                  >※JAXA 有人宇宙技術部門による
-                </p>
-              </div>
-            </section>
-            <section
-              class="altitude-scene"
-              id="altitude-moon"
-              data-scene="5"
-              data-altitude="380000"
-              aria-labelledby="altitude-title-moon"
-            >
-              <div class="altitude-copy">
-                <div class="altitude-measure">
-                  <p class="altitude-label">地上から約</p>
-                  <p class="altitude-value">
-                    <span class="sr-only">38万km</span
-                    ><span class="distance" aria-hidden="true">38万</span
-                    ><span aria-hidden="true">km</span>
-                  </p>
-                </div>
-                <div class="altitude-heading">
-                  <p class="altitude-english" lang="en">
-                    "Reached the lunar surface."
-                  </p>
-                  <h2 id="altitude-title-moon"><span>月面に到達</span></h2>
-                </div>
-                <p class="altitude-note altitude-note--long">
-                  近地点：約35万7,000km 遠地点：約40万6,000km
-                  ※国立天文台(NAOJ)による
-                </p>
-              </div>
-            </section>
-            <div class="altitude-readout altitude-measure" aria-hidden="true">
-              <p class="altitude-label">地上から約</p>
-              <p class="altitude-value">
-                <span class="sr-only">00km</span
-                ><span class="distance" aria-hidden="true">00</span
-                ><span aria-hidden="true">km</span>
-              </p>
+              <nav class="altitude-nav" aria-label="高度を選択">
+                <a href="#altitude-ground" data-altitude-link="0">0m</a
+                ><a href="#altitude-10km" data-altitude-link="1">10km</a
+                ><a href="#altitude-25km" data-altitude-link="2">25km</a
+                ><a href="#altitude-100km" data-altitude-link="3">100km</a
+                ><a href="#altitude-400km" data-altitude-link="4">400km</a
+                ><a href="#altitude-moon" data-altitude-link="5">38万km</a
+                ><img
+                  class="altitude-marker"
+                  src="assets/icons/icon-altitude-marker.svg"
+                  alt=""
+                  width="24"
+                  height="24"
+                />
+              </nav>
+              <a class="scroll-cue" href="#altitude-ground"
+                ><span>SCROLL DOWN</span
+                ><img
+                  class=""
+                  src="assets/icons/icon-arrow-down.svg"
+                  alt=""
+                  width="24"
+                  height="24"
+              /></a>
+              <p class="journey-signature" lang="en">JTB × SPACE BUSINESS</p>
             </div>
-            <nav class="altitude-nav" aria-label="高度を選択">
-              <a href="#altitude-ground" data-altitude-link="0">0m</a
-              ><a href="#altitude-10km" data-altitude-link="1">10km</a
-              ><a href="#altitude-25km" data-altitude-link="2">25km</a
-              ><a href="#altitude-100km" data-altitude-link="3">100km</a
-              ><a href="#altitude-400km" data-altitude-link="4">400km</a
-              ><a href="#altitude-moon" data-altitude-link="5">38万km</a
-              ><img
-                class="altitude-marker"
-                src="assets/icons/icon-altitude-marker.svg"
-                alt=""
-                width="24"
-                height="24"
-              />
-            </nav>
-            <a class="scroll-cue" href="#altitude-ground"
-              ><span>SCROLL DOWN</span
-              ><img
-                class=""
-                src="assets/icons/icon-arrow-down.svg"
-                alt=""
-                width="24"
-                height="24"
-            /></a>
-            <p class="journey-signature" lang="en">JTB × SPACE BUSINESS</p>
           </div>
+          <section class="vision" id="vision" aria-labelledby="vision-heading">
+            <div class="vision-stage">
+              <div class="vision-content container">
+                <h2 class="sr-only" id="vision-heading">VISION</h2>
+                <div class="vision-copy">
+                  <p class="vision-paragraph vision-year">2045年</p>
+                  <p class="vision-paragraph">
+                    宇宙旅行が<br />“あたりまえ”になった世界。<br />宇宙で<br />学び、働き、暮らす。<br />そこには、<br />新しい文化や社会が<br />生まれていきます。
+                  </p>
+                  <p class="vision-paragraph">
+                    JTBは、<br />地球で培った交流創造の力で、<br />人々の想いや挑戦を<br />宇宙へ広げます。
+                  </p>
+                  <p class="vision-paragraph vision-goal">
+                    目指すのは、地球と宇宙をつなぎ、<br />新しい「交流」をつくることです。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-        <section class="vision" id="vision" aria-labelledby="vision-heading">
-          <div class="vision-stage">
-            <div class="vision-content container">
-              <h2 id="vision-heading">VISION</h2>
-              <div class="vision-copy">
-                <p class="vision-paragraph">
-                  <span class="vision-year">2045年</span
-                  ><br />宇宙旅行が“あたりまえ”に<span class="sp-break"></span
-                  >なった世界。<br />宇宙で学び、働き、暮らす。<br />そこには、新しい文化や社会が<span
-                    class="sp-break"
-                  ></span
-                  >生まれていきます。
-                </p>
-                <p class="vision-paragraph">
-                  JTBは、地球で培った交流創造の力で、<br />人々の想いや挑戦を宇宙へ広げます。
-                </p>
-                <p class="vision-paragraph vision-goal">
-                  目指すのは、地球と宇宙をつなぎ、<br />新しい「交流」をつくることです。
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
         <section
           class="earth-space"
           id="earth-space"

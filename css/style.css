@@ -20,6 +20,20 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "Zen Old Mincho";
+  src: url("../assets/fonts/zen-old-mincho-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Zen Old Mincho";
+  src: url("../assets/fonts/zen-old-mincho-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
   --color-bg: #000;
   --color-text: #f5f5f5;
@@ -2038,7 +2052,292 @@ main > section {
     line-height: 18px;
   }
 }
+/* Figma 2067:1229: revisions are scoped to FV through the end of VISION. */
+.intro-scope {
+  --intro-type: clamp(32px, min(4.83vw, 8.5svh), 73.031px);
+  --intro-copy-height: calc(var(--intro-type) * 3.368);
+  position: relative;
+  isolation: isolate;
+  background: #020202;
+  display: flow-root;
+}
+.intro-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.intro-backdrop-stage {
+  position: sticky;
+  top: 0;
+  height: var(--screen-height);
+  overflow: hidden;
+}
+.intro-lunar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  scale: 1;
+}
+.has-animated-journey .intro-backdrop-stage {
+  opacity: 0;
+  transition: opacity 0.65s ease;
+}
+.is-at-moon .intro-backdrop-stage {
+  opacity: 1;
+}
+.intro-scope .hero-shade {
+  opacity: 0.85;
+}
+.intro-scope .hero-content {
+  padding: 0;
+  transform: translateY(19px);
+}
+.intro-scope .hero-space > span,
+.intro-scope .hero h1,
+.intro-scope .altitude-message,
+.intro-scope .vision-copy {
+  font-family: "Zen Old Mincho", serif;
+}
+.intro-scope .hero-space > span,
+.intro-scope .hero h1 {
+  font-weight: 400;
+}
+.intro-scope .brand-cross {
+  width: 24px;
+  height: 54px;
+}
+.intro-scope .hero h1 {
+  font-size: var(--intro-type);
+  line-height: 1.684;
+  letter-spacing: 0.2em;
+  margin-top: 15px;
+}
+.intro-scope .hero-english {
+  font-size: clamp(10px, 0.91vw, 13.764px);
+  line-height: 26px;
+  letter-spacing: 0.4em;
+  margin-top: 44px;
+}
+.intro-scope .hero .scene-image,
+.intro-scope .altitude-scene[data-scene="0"] .scene-image {
+  object-position: 55% center;
+  transform: scale(1.17);
+}
+.intro-scope .altitude-scene[data-scene="2"] .scene-image {
+  transform: rotate(180deg) scale(1.21);
+  object-position: center 46%;
+}
+.intro-scope .altitude-scene[data-scene="3"] .scene-image {
+  transform: scale(1.255);
+  transform-origin: center top;
+}
+.intro-scope .altitude-scene[data-scene="4"] .scene-image {
+  transform: none;
+  object-position: center;
+}
+.intro-scope .scene-shade {
+  background: transparent;
+}
+.intro-scope .journey-stage {
+  --altitude-readout-top: calc(50% + var(--intro-type) * 2.58);
+}
+.intro-scope .altitude-copy {
+  width: min(1192px, calc(100% - 160px));
+  max-width: none;
+  padding: calc(var(--fixed-height) + 32px) 0 80px;
+  gap: 30px;
+}
+.intro-scope .altitude-heading {
+  gap: 19px;
+}
+.intro-scope .altitude-english {
+  font-size: 12.764px;
+  line-height: 26px;
+  letter-spacing: 0.1em;
+}
+.intro-scope .altitude-caption {
+  order: 2;
+  color: #000;
+  background: #fff;
+  padding: 10px 11px;
+  font-size: clamp(24px, 2.412vw, 36.472px);
+  line-height: 1;
+  letter-spacing: 0.1em;
+}
+.intro-scope h2.altitude-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  order: 2;
+  width: 100%;
+  min-height: var(--intro-copy-height);
+  font-size: var(--intro-type);
+  font-weight: 400;
+  line-height: 1.684;
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+.intro-scope h2.altitude-message > span {
+  color: #fff;
+  background: none;
+  padding: 0;
+  line-height: inherit;
+}
+.intro-scope .message-line {
+  display: block;
+}
+.intro-scope .altitude-value {
+  font-size: 53.459px;
+  line-height: 1.34;
+}
+.intro-scope .altitude-label {
+  font-size: 25.459px;
+}
+.intro-scope .altitude-readout .altitude-value {
+  width: 245px;
+}
+.intro-scope .is-ground .distance,
+.intro-scope [data-scene="0"] .distance {
+  color: var(--color-primary);
+}
+.intro-scope .journey.is-animated .altitude-copy {
+  top: 50%;
+  padding: 0;
+}
+.intro-scope .is-animated .altitude-copy .altitude-measure {
+  display: none;
+}
+.intro-scope .is-animated .altitude-heading {
+  bottom: calc(100% + 19px);
+}
+.intro-scope .is-animated .message-character {
+  opacity: 0;
+  transition: opacity 0.36s ease;
+}
+.intro-scope .is-animated .is-current .message-character {
+  opacity: 1;
+  transition-delay: calc(var(--character-index) * 45ms);
+}
+.intro-scope .vision-content {
+  width: 57%;
+  max-width: none;
+  margin-left: 41%;
+  margin-right: 2%;
+  text-align: left;
+  padding-block: calc(var(--fixed-height) + 32px) 32px;
+}
+.intro-scope .vision-content h2 {
+  margin: 0;
+}
+.intro-scope .vision-copy {
+  font-size: clamp(26px, 2.7778vw, 42px);
+  font-weight: 700;
+  line-height: 2.4524;
+  letter-spacing: 0.1em;
+}
+.intro-scope .vision-year,
+.intro-scope .vision-goal {
+  font-size: inherit;
+}
+.intro-scope .vision-paragraph + .vision-paragraph {
+  margin-top: 2.4524em;
+}
+@media (max-width: 767px) {
+  .intro-scope {
+    --intro-type: clamp(23px, 6.1vw, 36px);
+  }
+  .intro-scope .hero-content {
+    transform: translateY(32px);
+  }
+  .intro-scope .hero h1 {
+    font-size: clamp(19px, 5.35vw, 32px);
+    line-height: 2.05;
+    letter-spacing: 0.08em;
+    margin-top: 32px;
+  }
+  .intro-scope .brand-cross {
+    width: 13px;
+    height: 29px;
+  }
+  .intro-scope .hero-english {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    line-height: 20px;
+    margin-top: 26px;
+  }
+  .intro-scope .altitude-copy,
+  .intro-scope .is-animated .altitude-copy {
+    width: calc(100% - 64px);
+  }
+  .intro-scope .journey-stage {
+    --altitude-readout-top: calc(50% + var(--intro-type) * 2.58 + 28px);
+  }
+  .intro-scope .altitude-heading {
+    gap: 12px;
+  }
+  .intro-scope .altitude-english {
+    font-size: 8px;
+    line-height: 18px;
+    letter-spacing: 0.02em;
+  }
+  .intro-scope .altitude-caption {
+    font-size: 17px;
+    line-height: 24px;
+    padding: 5px 9px;
+  }
+  .intro-scope h2.altitude-message {
+    letter-spacing: 0.1em;
+    line-height: 1.8;
+  }
+  .intro-scope .altitude-measure {
+    flex-direction: row;
+    gap: 4px;
+  }
+  .intro-scope .altitude-label {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .intro-scope .altitude-value {
+    font-size: 30px;
+    line-height: 1.4;
+  }
+  .intro-scope .distance {
+    font-size: 44px;
+  }
+  .intro-scope .altitude-readout .altitude-value {
+    width: 174px;
+  }
+  .intro-scope .altitude-nav {
+    font-size: 9px;
+  }
+  .intro-scope .intro-lunar-image {
+    object-position: 40% center;
+  }
+  .intro-scope .journey:not(.is-animated) [data-scene="5"] .altitude-copy {
+    margin-top: 0;
+  }
+  .intro-scope .vision-content {
+    width: calc(100% - 48px);
+    margin-inline: 24px;
+    padding-block: calc(var(--fixed-height) + 32px) 32px;
+  }
+  .intro-scope .vision-copy {
+    font-size: clamp(18px, 4.8vw, 26px);
+    line-height: 2.45;
+    letter-spacing: 0.05em;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .intro-lunar-image {
+    scale: 1 !important;
+  }
+  .intro-scope .message-character {
+    opacity: 1;
+    transition: none;
+  }
   html {
     scroll-behavior: auto;
   }

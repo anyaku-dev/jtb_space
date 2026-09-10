@@ -114,6 +114,7 @@
   selectSide(1);
 
   const lunarScope = $(".lunar-scope");
+  const introLunarImage = $(".intro-lunar-image");
   const journey = $(".journey");
   const stage = $(".journey-stage");
   const hero = $(".hero");
@@ -134,33 +135,47 @@
   const visionStage = $(".vision-stage");
   const visionContent = $(".vision-content");
   const visionCharacters = [];
+  const sceneCharacters = scenes.map(() => []);
 
   // Preserve complete paragraphs for assistive technology; only the visual text
   // is split into characters. Explicit line breaks keep the PC/SP composition.
-  $$(".vision-paragraph").forEach((paragraph) => {
-    const spoken = paragraph.textContent;
-    const visual = document.createElement("span");
-    visual.setAttribute("aria-hidden", "true");
-    while (paragraph.firstChild) visual.append(paragraph.firstChild);
-    const accessible = document.createElement("span");
-    accessible.className = "sr-only";
-    accessible.textContent = spoken;
-    paragraph.append(accessible, visual);
-    const walker = document.createTreeWalker(visual, NodeFilter.SHOW_TEXT);
-    const textNodes = [];
-    while (walker.nextNode()) textNodes.push(walker.currentNode);
-    textNodes.forEach((node) => {
-      const fragment = document.createDocumentFragment();
-      for (const character of node.textContent) {
-        const span = document.createElement("span");
-        span.className = "vision-character";
-        span.textContent = character;
-        visionCharacters.push(span);
-        fragment.append(span);
-      }
-      node.replaceWith(fragment);
-    });
-  });
+  [...$$(".vision-paragraph"), ...$$(".altitude-message")].forEach(
+    (paragraph) => {
+      const sceneIndex = scenes.indexOf(paragraph.closest(".altitude-scene"));
+      const characters =
+        sceneIndex >= 0 ? sceneCharacters[sceneIndex] : visionCharacters;
+      const spoken = paragraph.textContent;
+      const visual = document.createElement("span");
+      visual.setAttribute("aria-hidden", "true");
+      while (paragraph.firstChild) visual.append(paragraph.firstChild);
+      const accessible = document.createElement("span");
+      accessible.className = "sr-only";
+      accessible.textContent = spoken;
+      paragraph.append(accessible, visual);
+      const walker = document.createTreeWalker(visual, NodeFilter.SHOW_TEXT);
+      const textNodes = [];
+      while (walker.nextNode()) textNodes.push(walker.currentNode);
+      textNodes.forEach((node) => {
+        // Formatting whitespace between copy lines is not a revealable character.
+        if (sceneIndex >= 0 && !node.textContent.trim()) {
+          node.remove();
+          return;
+        }
+        const fragment = document.createDocumentFragment();
+        for (const character of node.textContent) {
+          const span = document.createElement("span");
+          span.className =
+            sceneIndex >= 0 ? "message-character" : "vision-character";
+          span.textContent = character;
+          if (sceneIndex >= 0)
+            span.style.setProperty("--character-index", characters.length);
+          characters.push(span);
+          fragment.append(span);
+        }
+        node.replaceWith(fragment);
+      });
+    },
+  );
 
   // Scroll distances are independent of altitude magnitude. Adjust only here.
   const HERO_DISTANCE = 0.65;
@@ -197,6 +212,8 @@
       SCENE_ZOOM_LIMIT * -Math.expm1(-zoomAnimation.elapsed / SCENE_ZOOM_TIME);
     // Individual scale composes with the existing PC/SP image crop transforms.
     zoomAnimation.image.style.scale = zoom.toFixed(6);
+    if (zoomAnimation.image === sceneImages[scenes.length - 1])
+      introLunarImage.style.scale = zoom.toFixed(6);
     zoomFrame = requestAnimationFrame(updateSceneZoom);
   }
 
@@ -225,6 +242,7 @@
     pauseSceneZoom();
     zoomAnimation = null;
     sceneImages.forEach((image) => image.style.removeProperty("scale"));
+    introLunarImage.style.removeProperty("scale");
     visionCharacters.forEach((character) => character.classList.add("is-read"));
     readout.setAttribute("aria-hidden", "true");
     activeScene = -2;
@@ -282,6 +300,8 @@
         : null;
     // Reset only the incoming image; the outgoing image keeps its crop while fading.
     if (zoomAnimation) zoomAnimation.image.style.scale = "1";
+    if (index === scenes.length - 1) introLunarImage.style.scale = "1";
+    journey.classList.toggle("is-ground", index === 0);
     lunarScope.classList.toggle("is-travelling", index >= 0);
     lunarScope.classList.toggle("is-at-moon", index === scenes.length - 1);
     hero.classList.toggle("is-current", index < 0);
@@ -331,7 +351,7 @@
           );
     if (index !== activeScene) setScene(index, now);
     syncSceneZoom();
-    const startShade = narrowScreen.matches ? 1 : 0.76;
+    const startShade = 0.85;
     $(".hero-shade").style.opacity = String(
       startShade - clamp(travel / HERO_DISTANCE) * (startShade - 0.2),
     );
