@@ -2097,6 +2097,7 @@ main > section {
 }
 .intro-scope .hero-space > span,
 .intro-scope .hero h1,
+.intro-scope .altitude-caption,
 .intro-scope .altitude-message,
 .intro-scope .vision-copy {
   font-family: "Zen Old Mincho", serif;
@@ -2164,6 +2165,7 @@ main > section {
   background: none;
   padding: 10px 11px;
   font-size: clamp(24px, 2.412vw, 36.472px);
+  font-weight: 400;
   line-height: 1;
   letter-spacing: 0.1em;
 }
@@ -2175,7 +2177,7 @@ main > section {
   width: 100%;
   min-height: var(--intro-copy-height);
   font-size: var(--intro-type);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.684;
   letter-spacing: 0.2em;
   margin: 0;
