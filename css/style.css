@@ -843,6 +843,7 @@ main > section {
   line-height: 1.9;
 }
 .side-card ul {
+  font-weight: 400;
   border-radius: var(--radius-card);
   padding: 42px 58px;
   min-height: 267px;
@@ -982,6 +983,7 @@ main > section {
 }
 .domain-lead {
   font-size: 20px;
+  font-weight: 400;
   line-height: 1.9;
   color: #fff9;
   margin-top: 10px;
