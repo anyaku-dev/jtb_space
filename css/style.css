@@ -2177,7 +2177,7 @@ main > section {
   width: 100%;
   min-height: var(--intro-copy-height);
   font-size: var(--intro-type);
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.684;
   letter-spacing: 0.2em;
   margin: 0;
