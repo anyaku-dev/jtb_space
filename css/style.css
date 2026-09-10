@@ -628,6 +628,7 @@ main > section {
   margin-inline: auto;
 }
 .is-animated .altitude-heading,
+.is-animated .altitude-english,
 .is-animated .altitude-note {
   opacity: 0;
   transform: translateY(25px);
@@ -636,6 +637,7 @@ main > section {
     transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .is-animated .is-current .altitude-heading,
+.is-animated .is-current .altitude-english,
 .is-animated .is-current .altitude-note {
   opacity: 1;
   transform: none;
@@ -2055,7 +2057,7 @@ main > section {
 /* Figma 2067:1229: revisions are scoped to FV through the end of VISION. */
 .intro-scope {
   --intro-type: clamp(32px, min(4.83vw, 8.5svh), 73.031px);
-  --intro-copy-height: calc(var(--intro-type) * 3.368);
+  --intro-copy-height: calc(var(--intro-type) * 2.8);
   --altitude-size-scale: 0.75;
   position: relative;
   isolation: isolate;
@@ -2143,7 +2145,7 @@ main > section {
   background: transparent;
 }
 .intro-scope .journey-stage {
-  --altitude-readout-top: calc(50% + var(--intro-type) * 2.58);
+  --altitude-readout-top: calc(50% + var(--intro-copy-height) / 2 + 100px);
 }
 .intro-scope .altitude-copy {
   width: min(1192px, calc(100% - 160px));
@@ -2155,6 +2157,7 @@ main > section {
   gap: 19px;
 }
 .intro-scope .altitude-english {
+  order: 3;
   font-size: 12.764px;
   line-height: 26px;
   letter-spacing: 0.1em;
@@ -2178,7 +2181,7 @@ main > section {
   min-height: var(--intro-copy-height);
   font-size: var(--intro-type);
   font-weight: 400;
-  line-height: 1.684;
+  line-height: 1.4;
   letter-spacing: 0.2em;
   margin: 0;
 }
@@ -2193,6 +2196,9 @@ main > section {
 }
 .intro-scope .altitude-measure {
   gap: calc(8px * var(--altitude-size-scale));
+}
+.intro-scope .altitude-copy > .altitude-measure {
+  order: 4;
 }
 .intro-scope .altitude-value {
   font-size: calc(53.459px * var(--altitude-size-scale));
@@ -2220,6 +2226,12 @@ main > section {
 }
 .intro-scope .is-animated .altitude-heading {
   bottom: calc(100% + 19px);
+}
+.intro-scope .is-animated .altitude-english {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  width: 100%;
 }
 .intro-scope .is-animated .message-character {
   opacity: 0;
@@ -2281,7 +2293,7 @@ main > section {
     width: calc(100% - 64px);
   }
   .intro-scope .journey-stage {
-    --altitude-readout-top: calc(50% + var(--intro-type) * 2.58 + 28px);
+    --altitude-readout-top: calc(50% + var(--intro-copy-height) / 2 + 68px);
   }
   .intro-scope .altitude-heading {
     gap: 12px;
@@ -2291,6 +2303,9 @@ main > section {
     line-height: 18px;
     letter-spacing: 0.02em;
   }
+  .intro-scope .is-animated .altitude-english {
+    top: calc(100% + 8px);
+  }
   .intro-scope .altitude-caption {
     font-size: 17px;
     line-height: 24px;
@@ -2298,7 +2313,6 @@ main > section {
   }
   .intro-scope h2.altitude-message {
     letter-spacing: 0.1em;
-    line-height: 1.8;
   }
   .intro-scope .altitude-measure {
     flex-direction: row;
