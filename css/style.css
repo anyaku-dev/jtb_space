@@ -2271,7 +2271,7 @@ main > section {
   margin: 0;
 }
 .intro-scope .vision-copy {
-  font-size: clamp(26px, 2.7778vw, 42px);
+  font-size: clamp(24px, 2.5vw, 38px);
   font-weight: 400;
   line-height: 2.4524;
   letter-spacing: 0.1em;
@@ -2365,7 +2365,7 @@ main > section {
     padding-block: calc(var(--fixed-height) + 32px) 32px;
   }
   .intro-scope .vision-copy {
-    font-size: clamp(18px, 4.8vw, 26px);
+    font-size: clamp(17px, 4.4vw, 24px);
     line-height: 2.45;
     letter-spacing: 0.05em;
   }
