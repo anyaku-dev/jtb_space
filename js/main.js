@@ -183,7 +183,7 @@
   const COUNT_DURATION = 680;
   // A gentle time-based zoom approaches this limit without a visible stop/reset.
   const SCENE_ZOOM_LIMIT = 0.08;
-  const SCENE_ZOOM_TIME = 60000;
+  const SCENE_ZOOM_TIME = 20000;
   let animated = false;
   let activeScene = -2;
   let animationFrame = 0;
