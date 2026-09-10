@@ -33,9 +33,11 @@
   --font-latin: Manrope, "Noto Sans JP", sans-serif;
   --font-corporate: "Noto Sans JP", sans-serif;
   --radius-card: 14px;
-  /* Follow the currently visible mobile viewport as browser bars expand/collapse. */
+  /* Use the small viewport height so full-screen sections always fit within the
+     visible area even when the mobile browser's address/menu bar is showing.
+     Fallback order: 100vh (legacy) -> 100svh (modern, guaranteed to fit). */
   --screen-height: 100vh;
-  --screen-height: 100dvh;
+  --screen-height: 100svh;
   --header-height: 112px;
   --page-nav-height: 64px;
   --fixed-height: calc(var(--header-height) + var(--page-nav-height));
