@@ -2379,9 +2379,9 @@ main > section {
   }
   .intro-scope .altitude-measure {
     display: grid;
-    grid-template-columns: 56px minmax(0, 1fr);
+    grid-template-columns: 40px minmax(0, 1fr);
     gap: 0 12px;
-    width: 200px;
+    width: min(300px, calc(100% - 48px));
     align-items: center;
   }
   .intro-scope .altitude-readout {
@@ -2426,6 +2426,11 @@ main > section {
   }
   .intro-scope .distance {
     font-size: clamp(48px, 13.93vw, 54.317px);
+    /* Reserve the widest count (including values such as 37.9万). */
+    display: inline-block;
+    width: 3.2em;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
   }
   .intro-scope .altitude-readout .altitude-value {
     width: auto;
