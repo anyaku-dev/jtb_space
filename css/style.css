@@ -2163,7 +2163,6 @@ main > section {
   background: #fff;
   padding: 10px 11px;
   font-size: clamp(24px, 2.412vw, 36.472px);
-  font-weight: 400;
   line-height: 1;
   letter-spacing: 0.1em;
 }
@@ -2191,12 +2190,10 @@ main > section {
 }
 .intro-scope .altitude-value {
   font-size: 53.459px;
-  font-weight: 400;
   line-height: 1.34;
 }
 .intro-scope .altitude-label {
   font-size: 25.459px;
-  font-weight: 400;
 }
 .intro-scope .altitude-readout .altitude-value {
   width: 245px;
