@@ -418,6 +418,7 @@
   window.addEventListener("resize", measure, { passive: true });
   reducedMotion.addEventListener("change", measure);
   const layoutObserver = new ResizeObserver(measure);
+  layoutObserver.observe(stage);
   layoutObserver.observe(visionContent);
   measure();
   document.fonts.ready.then(() => {
