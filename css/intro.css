@@ -857,7 +857,13 @@ main > section {
   line-height: inherit;
 }
 .intro-scope #altitude-ground .altitude-caption,
-.intro-scope #altitude-title-ground {
+.intro-scope #altitude-title-ground,
+.intro-scope #altitude-10km .altitude-caption,
+.intro-scope #altitude-title-10km,
+.intro-scope #altitude-25km .altitude-caption,
+.intro-scope #altitude-title-25km,
+.intro-scope #altitude-100km .altitude-caption,
+.intro-scope #altitude-title-100km {
   font-family: var(--font-body);
   font-weight: 400;
 }
@@ -1002,7 +1008,8 @@ main > section {
   .intro-scope [data-scene="4"] h2.altitude-message {
     font-size: clamp(23px, 7.25vw, 28.275px);
   }
-  .intro-scope #altitude-title-ground {
+  .intro-scope #altitude-title-ground,
+  .intro-scope #altitude-title-25km {
     font-size: clamp(19px, 6.3vw, 31.8px);
   }
   .intro-scope .altitude-measure {
