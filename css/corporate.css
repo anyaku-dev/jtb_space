@@ -8,6 +8,9 @@
   height: var(--header-height);
   background: linear-gradient(110deg, #001c7b, #005ac8 60%, #00a7e1);
   padding: 16px 40px;
+  padding-top: calc(16px + var(--safe-top));
+  padding-left: max(40px, env(safe-area-inset-left, 0px));
+  padding-right: max(40px, env(safe-area-inset-right, 0px));
   display: flex;
   gap: 32px;
   align-items: center;
@@ -254,13 +257,17 @@
   font-size: 12px;
   font-weight: 500;
   padding: 16px 24px;
+  padding-bottom: calc(16px + var(--safe-bottom));
 }
 
 /* 画面幅別のヘッダー・フッター */
 @media (max-width: 1199px) {
   .corporate-header {
-    height: 72px;
+    height: var(--header-height);
     padding: 16px;
+    padding-top: calc(16px + var(--safe-top));
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
   }
   .corporate-brand > img {
     width: 66px;

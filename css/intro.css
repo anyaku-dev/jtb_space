@@ -1016,7 +1016,8 @@ main > section {
   }
   .intro-scope .altitude-measure {
     display: grid;
-    grid-template-columns: 40px minmax(0, 1fr);
+    grid-template-columns: max-content max-content;
+    justify-content: center;
     gap: 0 12px;
     width: min(300px, calc(100% - 48px));
     align-items: center;
@@ -1047,6 +1048,7 @@ main > section {
   .intro-scope .altitude-approx {
     grid-column: 1;
     grid-row: 2;
+    padding-left: 0;
     font-size: 27px;
     line-height: 1;
     align-self: center;
@@ -1073,8 +1075,8 @@ main > section {
     width: auto;
   }
   .intro-scope .altitude-nav {
-    left: 17px;
-    bottom: 42px;
+    left: max(17px, env(safe-area-inset-left, 0px));
+    bottom: calc(42px + var(--safe-bottom));
     width: 56px;
     font-family: Inter, sans-serif;
     font-size: 13.056px;
@@ -1091,7 +1093,7 @@ main > section {
     font-family: Inter, sans-serif;
     font-size: 10.421px;
     font-weight: 400;
-    bottom: 30px;
+    bottom: calc(30px + var(--safe-bottom));
   }
   .intro-scope .journey.is-travelling .scroll-cue > img {
     width: 15.158px;
@@ -1120,7 +1122,6 @@ main > section {
 @media (max-width: 767px) and (max-height: 740px), (max-width: 374px) {
   .intro-scope .altitude-measure {
     width: min(220px, calc(100% - 170px));
-    grid-template-columns: 16px minmax(0, 1fr);
     column-gap: 4px;
   }
   .intro-scope .altitude-origin,

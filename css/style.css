@@ -53,7 +53,9 @@
      下部バーの伸縮に追従する 100dvh へ切り替える。 */
   --screen-height: 100vh;
   --screen-height: 100svh;
-  --header-height: 112px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --header-height: calc(112px + var(--safe-top));
   --page-nav-height: 64px;
   --fixed-height: calc(var(--header-height) + var(--page-nav-height));
   --altitude-content-center: calc(50% + 88px);
@@ -157,7 +159,7 @@ summary:focus-visible,
 /* 画面幅別の共通設定 */
 @media (max-width: 1199px) {
   :root {
-    --header-height: 72px;
+    --header-height: calc(72px + var(--safe-top));
     --altitude-content-center: calc(50% + 68px);
   }
 }
