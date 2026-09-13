@@ -11,7 +11,11 @@ Figma、Google Fonts、CDNなどへの通信は表示時に発生しません。
 ```text
 site/
 ├── index.html
-├── css/style.css
+├── css/
+│   ├── style.css      共通値・基本スタイル
+│   ├── corporate.css  共通ヘッダー・フッター
+│   ├── sections.css   EARTH × SPACE〜CONTACT
+│   └── intro.css      月面背景・FV・高度体験・VISION
 ├── js/main.js
 ├── assets/
 │   ├── images/    写真・透過ロゴ（WebP）
@@ -73,6 +77,7 @@ site/
 ## 文字・写真を修正する場所
 
 - **記事・コピー**：`index.html`。`news-row`、`domain-item`などの名前を付けています。DOMを追加・修正した後にビルドする必要はありません。
+- **セクションのスタイル**：ヘッダー／フッターは`css/corporate.css`、EARTH × SPACE〜CONTACTは`css/sections.css`、FV・高度体験・VISIONと共有月面背景は`css/intro.css`。各ファイル内でPC／SPと表示状態を調整します。CSSの読み込み順は`index.html`に記載した順序を維持してください。
 - **デザイン共通値**：`css/style.css`冒頭の`:root`。色、幅、余白、フォント、角丸をまとめています。
 - **高度の画像**：`intro-0km.webp`、`intro-10km-319b5f95.webp`、`intro-25km.webp`〜`intro-400km.webp`は各場面の`img`を差し替えます。0km・10kmは支給PNGを元の解像度でWebP化しています。10kmのファイル名には更新前のキャッシュを避けるため内容の識別値を付けています。FVも0kmと同じ`intro-0km.webp`と切り取り位置を使用します。`intro-moon.webp`は`.intro-lunar-image`で38万km〜VISIONに使用。既存の`moon-surface.webp`と`.lunar-background`はDOMAINの表示を維持するため残しています。
 - **SIDEの背景**：`side-earth.webp`＝街並み、`side-connect.webp`＝スペースシャトル打ち上げ、`side-space.webp`＝地球と宇宙飛行士。
@@ -94,7 +99,9 @@ site/
 
 ## アニメーションの調整
 
-`js/main.js`の次の定数を変更できます。秒数・距離の詳細はデザインコメントに数値指定がなかったため、試作値です。
+`js/main.js`は、詳細開閉・セクションの表示演出・SIDE切り替え・文字分割・高度体験の順に初期化します。高度体験の中に、背景ズーム、数値カウント、VISION、ページ内移動、画面サイズの再計測をまとめています。
+
+`initializeJourney`内の次の定数を変更できます。秒数・距離の詳細はデザインコメントに数値指定がなかったため、試作値です。
 
 | 設定               | 現在値 | 役割                                                             |
 | ------------------ | -----: | ---------------------------------------------------------------- |
@@ -104,7 +111,7 @@ site/
 | `SCENE_ZOOM_LIMIT` |   0.08 | 長時間表示した場合に緩やかに近づく拡大幅（8%）                   |
 | `SCENE_ZOOM_TIME`  |  16000 | 拡大の時間係数（ミリ秒）。大きいほどゆっくり拡大                 |
 
-旅程全体の長さはCSSの`.journey.is-animated`、VISIONの長さは`.vision.is-animated`で指定しています。場面数・距離を変更する場合は、最後の場面を読むための距離を残してください。
+旅程全体の長さは`css/intro.css`の`.journey.is-animated`、VISIONの長さは`.vision.is-animated`で指定しています。場面数・距離を変更する場合は、最後の場面を読むための距離を残してください。
 
 スクロールはブラウザー標準のままです。逆スクロール、ページ内移動、途中の高度への直接アクセス・再読み込みに対応しています。スクロール更新とは別に、高度の背景が表示されている間だけ`requestAnimationFrame`で拡大します。現在は約10秒で3.7%、30秒で6.8%拡大し、その後も速度を緩めながら拡大を続けます。タブが非表示の間は一時停止し、復帰時に途中の大きさから再開します。
 

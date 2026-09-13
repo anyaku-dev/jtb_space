@@ -9,7 +9,11 @@
       name="description"
       content="宇宙交流時代に人々の想いや挑戦を実現する。JTBは地球で培った交流創造の力で、地球と宇宙をつなぎ、新しい交流をつくります。"
     />
+    <!-- 共通 → 共通ヘッダー／フッター → 各セクション → 高度演出の順に適用 -->
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/corporate.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/intro.css" />
     <script src="js/main.js" defer></script>
   </head>
   <body>
@@ -40,7 +44,6 @@
           <span>JTBだからできること</span><span>サービス</span><span>事例</span
           ><span>イベント・セミナー</span><span>WEBマガジン</span
           ><img
-            class=""
             src="assets/icons/icon-search-white.svg"
             alt=""
             width="24"
@@ -51,13 +54,11 @@
       </div>
       <div class="corporate-mobile" aria-hidden="true">
         <img
-          class=""
           src="assets/icons/icon-search-white.svg"
           alt=""
           width="24"
           height="24"
         /><img
-          class=""
           src="assets/icons/icon-menu.svg"
           alt=""
           width="24"
@@ -65,6 +66,7 @@
         />
       </div>
     </header>
+    <!-- 全区間に固定表示するページ内ナビ -->
     <nav
       class="page-nav fixed-page-navigation"
       aria-label="メインナビゲーション"
@@ -74,6 +76,7 @@
       ><a href="#contact">CONTACT</a>
     </nav>
     <main id="top">
+      <!-- 月面背景を高度体験からDOMAINまで共有 -->
       <div class="lunar-scope">
         <div class="lunar-backdrop" aria-hidden="true">
           <div class="lunar-backdrop-stage">
@@ -100,6 +103,7 @@
               />
             </div>
           </div>
+          <!-- FVと6高度。JS無効時は通常の縦並びで表示 -->
           <div class="journey" role="region" aria-label="地上から月面への体験">
             <div class="journey-stage">
               <section class="hero" aria-labelledby="hero-heading">
@@ -401,7 +405,6 @@
               <a class="scroll-cue" href="#altitude-ground"
                 ><span>SCROLL DOWN</span
                 ><img
-                  class=""
                   src="assets/icons/icon-arrow-down.svg"
                   alt=""
                   width="24"
@@ -410,6 +413,7 @@
               <p class="journey-signature" lang="en">JTB × SPACE BUSINESS</p>
             </div>
           </div>
+          <!-- VISION：スクロールに合わせて文章を明るくする -->
           <section class="vision" id="vision" aria-labelledby="vision-heading">
             <div class="vision-stage">
               <div class="vision-content container">
@@ -430,6 +434,7 @@
             </div>
           </section>
         </div>
+        <!-- EARTH × SPACE：タブ・カード・背景を同期 -->
         <section
           class="earth-space"
           id="earth-space"
@@ -563,7 +568,6 @@
                 aria-label="次の役割を表示"
               >
                 <img
-                  class=""
                   src="assets/icons/icon-chevron-white.svg"
                   alt=""
                   width="24"
@@ -573,6 +577,7 @@
             </div>
           </div>
         </section>
+        <!-- DOMAIN：各詳細は独立して開閉 -->
         <section class="domain" id="domain">
           <div class="container">
             <div class="section-heading">
@@ -595,7 +600,6 @@
                     ><span class="sr-only">：街をつくるの詳細</span
                     ><span class="details-icon"
                       ><img
-                        class=""
                         src="assets/icons/icon-plus.svg"
                         alt=""
                         width="24"
@@ -625,7 +629,6 @@
                     ><span class="sr-only">：交流をつくるの詳細</span
                     ><span class="details-icon"
                       ><img
-                        class=""
                         src="assets/icons/icon-plus.svg"
                         alt=""
                         width="24"
@@ -655,7 +658,6 @@
                     ><span class="sr-only">：人をつくるの詳細</span
                     ><span class="details-icon"
                       ><img
-                        class=""
                         src="assets/icons/icon-plus.svg"
                         alt=""
                         width="24"
@@ -690,7 +692,6 @@
                       >：0から1をつくる（未来をつくる）の詳細</span
                     ><span class="details-icon"
                       ><img
-                        class=""
                         src="assets/icons/icon-plus.svg"
                         alt=""
                         width="24"
@@ -718,6 +719,7 @@
           </div>
         </section>
       </div>
+      <!-- NEWS -->
       <section class="news section-space" id="news">
         <div class="container">
           <div class="section-heading">
@@ -736,7 +738,6 @@
               <p>JTB×宇宙のホームページを公開しました。</p>
               <span class="news-arrow" aria-hidden="true"
                 ><img
-                  class=""
                   src="assets/icons/icon-news-chevron.svg"
                   alt=""
                   width="24"
@@ -751,7 +752,6 @@
               <p>TeNQ</p>
               <span class="news-arrow" aria-hidden="true"
                 ><img
-                  class=""
                   src="assets/icons/icon-news-chevron.svg"
                   alt=""
                   width="24"
@@ -766,7 +766,6 @@
               <p>【福島県】福島スペースカンファレンスに協賛しました。</p>
               <span class="news-arrow" aria-hidden="true"
                 ><img
-                  class=""
                   src="assets/icons/icon-news-chevron.svg"
                   alt=""
                   width="24"
@@ -784,7 +783,6 @@
               </p>
               <span class="news-arrow" aria-hidden="true"
                 ><img
-                  class=""
                   src="assets/icons/icon-news-chevron.svg"
                   alt=""
                   width="24"
@@ -801,7 +799,6 @@
               </p>
               <span class="news-arrow" aria-hidden="true"
                 ><img
-                  class=""
                   src="assets/icons/icon-news-chevron.svg"
                   alt=""
                   width="24"
@@ -816,7 +813,6 @@
               <p>【神奈川県】神奈川宇宙サミットに出展・登壇しました。</p>
               <span class="news-arrow" aria-hidden="true"
                 ><img
-                  class=""
                   src="assets/icons/icon-news-chevron.svg"
                   alt=""
                   width="24"
@@ -831,7 +827,6 @@
               <p>JTB宇宙事業開発グループが発足しました。</p>
               <span class="news-arrow" aria-hidden="true"
                 ><img
-                  class=""
                   src="assets/icons/icon-news-chevron.svg"
                   alt=""
                   width="24"
@@ -841,6 +836,7 @@
           </ul>
         </div>
       </section>
+      <!-- PROJECT：リンク先は導入時に設定 -->
       <section class="project section-space" id="project">
         <div class="container">
           <div class="section-heading">
@@ -880,7 +876,6 @@
               ><span>プロジェクトの詳細はこちら</span
               ><span class="cta-arrow"
                 ><img
-                  class=""
                   src="assets/icons/icon-project-chevron.svg"
                   alt=""
                   width="24"
@@ -889,6 +884,7 @@
           </div>
         </div>
       </section>
+      <!-- CONTACT：リンク先は導入時に設定 -->
       <section class="contact" id="contact" aria-labelledby="contact-heading">
         <img
           class="contact-background"
@@ -924,7 +920,6 @@
             ><span>お問い合わせはこちら</span
             ><span class="cta-arrow"
               ><img
-                class=""
                 src="assets/icons/icon-contact-chevron.svg"
                 alt=""
                 width="24"
@@ -945,7 +940,6 @@
       <div class="corporate-footer-top footer-container">
         <p class="corporate-footer-title">
           企業・団体向けサービス<img
-            class=""
             src="assets/icons/icon-arrow-red.svg"
             alt=""
             width="24"
@@ -993,7 +987,6 @@
         <p class="footer-download">
           お役立ち資料<span
             ><img
-              class=""
               src="assets/icons/icon-download-white.svg"
               alt=""
               width="24"
@@ -1006,7 +999,6 @@
           <div class="footer-banner footer-banner--government">
             <strong>自治体・行政機関向け</strong><span>情報はこちら</span
             ><img
-              class=""
               src="assets/icons/icon-arrow-white.svg"
               alt=""
               width="24"
@@ -1016,7 +1008,6 @@
           <div class="footer-banner footer-banner--education">
             <strong>学校・教育機関向け</strong><span>情報はこちら</span
             ><img
-              class=""
               src="assets/icons/icon-arrow-white.svg"
               alt=""
               width="24"
@@ -1040,7 +1031,6 @@
             <ul>
               <li>
                 会社情報<img
-                  class=""
                   src="assets/icons/icon-external-gray.svg"
                   alt=""
                   width="24"
@@ -1049,7 +1039,6 @@
               </li>
               <li>
                 個人情報保護方針<img
-                  class=""
                   src="assets/icons/icon-external-gray.svg"
                   alt=""
                   width="24"
@@ -1063,7 +1052,6 @@
           <div class="footer-social">
             <span
               ><img
-                class=""
                 src="assets/icons/icon-facebook.svg"
                 alt=""
                 width="24"
@@ -1071,7 +1059,6 @@
               />JTB for Business Facebook</span
             ><span
               ><img
-                class=""
                 src="assets/icons/icon-youtube.svg"
                 alt=""
                 width="24"
