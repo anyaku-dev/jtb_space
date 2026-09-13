@@ -49,9 +49,8 @@
   --font-latin: Manrope, "Noto Sans JP", sans-serif;
   --font-corporate: "Noto Sans JP", sans-serif;
   --radius-card: 14px;
-  /* Use the small viewport height so full-screen sections always fit within the
-     visible area even when the mobile browser's address/menu bar is showing.
-     Fallback order: 100vh (legacy) -> 100svh (modern, guaranteed to fit). */
+  /* 基本は小さいビューポート高。スマホでは対応ブラウザーに限り
+     下部バーの伸縮に追従する 100dvh へ切り替える。 */
   --screen-height: 100vh;
   --screen-height: 100svh;
   --header-height: 112px;
@@ -172,6 +171,15 @@ summary:focus-visible,
   }
   .sp-break {
     display: block;
+  }
+}
+
+/* スマホの写真領域を、ブラウザーUIを除く現在の表示高いっぱいにする。 */
+@supports (height: 100dvh) {
+  @media (max-width: 767px) {
+    :root {
+      --screen-height: 100dvh;
+    }
   }
 }
 
