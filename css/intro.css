@@ -1122,8 +1122,13 @@ main > section {
   display: none;
 }
 @media (max-width: 767px) {
-  .journey.has-mobile-backdrop {
+  .has-mobile-backdrop .journey {
     position: relative;
+  }
+  .has-mobile-backdrop .journey-stage,
+  .has-mobile-backdrop .vision-stage {
+    position: absolute;
+    width: 100%;
   }
   .has-mobile-backdrop .mobile-journey-backdrop {
     display: block;
@@ -1135,10 +1140,11 @@ main > section {
     overflow: hidden;
     pointer-events: none;
     background: #000;
-    z-index: 0;
+    z-index: -1;
   }
-  .has-mobile-backdrop .journey-stage {
-    z-index: 1;
+  /* 月からVISIONまで同じ背景を使い、別のsticky月面を重ねない。 */
+  .has-mobile-backdrop .intro-backdrop {
+    display: none;
   }
   .has-mobile-backdrop .hero,
   .has-mobile-backdrop .altitude-scene {
