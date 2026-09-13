@@ -2,14 +2,21 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
     <title>JTB × 宇宙｜Space business</title>
     <link rel="icon" href="assets/images/logo-jtb-red.webp" type="image/webp" />
     <meta
       name="description"
       content="宇宙交流時代に人々の想いや挑戦を実現する。JTBは地球で培った交流創造の力で、地球と宇宙をつなぎ、新しい交流をつくります。"
     />
+    <!-- 共通 → 共通ヘッダー／フッター → 各セクション → 高度演出の順に適用 -->
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/corporate.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/intro.css" />
     <script src="js/main.js" defer></script>
   </head>
   <body>
@@ -40,7 +47,6 @@
           <span>JTBだからできること</span><span>サービス</span><span>事例</span
           ><span>イベント・セミナー</span><span>WEBマガジン</span
           ><img
-            class=""
             src="assets/icons/icon-search-white.svg"
             alt=""
             width="24"
@@ -51,13 +57,11 @@
       </div>
       <div class="corporate-mobile" aria-hidden="true">
         <img
-          class=""
           src="assets/icons/icon-search-white.svg"
           alt=""
           width="24"
           height="24"
         /><img
-          class=""
           src="assets/icons/icon-menu.svg"
           alt=""
           width="24"
@@ -65,6 +69,7 @@
         />
       </div>
     </header>
+    <!-- 全区間に固定表示するページ内ナビ -->
     <nav
       class="page-nav fixed-page-navigation"
       aria-label="メインナビゲーション"
@@ -74,6 +79,7 @@
       ><a href="#contact">CONTACT</a>
     </nav>
     <main id="top">
+      <!-- 月面背景を高度体験からDOMAINまで共有 -->
       <div class="lunar-scope">
         <div class="lunar-backdrop" aria-hidden="true">
           <div class="lunar-backdrop-stage">
@@ -100,6 +106,7 @@
               />
             </div>
           </div>
+          <!-- FVと6高度。JS無効時は通常の縦並びで表示 -->
           <div class="journey" role="region" aria-label="地上から月面への体験">
             <div class="journey-stage">
               <section class="hero" aria-labelledby="hero-heading">
@@ -115,13 +122,8 @@
 
                 <div class="hero-content">
                   <div class="hero-brand">
+                    <span class="hero-logo" lang="en">JTB</span>
                     <img
-                      class="hero-logo"
-                      src="assets/images/logo-jtb-white.webp"
-                      alt="JTB 感動のそばに、いつも。"
-                      width="208"
-                      height="130"
-                    /><img
                       class="brand-cross"
                       src="assets/icons/intro-brand-cross.svg"
                       alt=""
@@ -129,7 +131,7 @@
                       height="54"
                     />
                     <div class="hero-space">
-                      <span>宇宙</span><small lang="en">Space business</small>
+                      <span>宇宙</span>
                     </div>
                   </div>
                   <h1 id="hero-heading">
@@ -137,8 +139,7 @@
                     ><span>人々の想いや挑戦を実現する</span>
                   </h1>
                   <p class="hero-english" lang="en">
-                    "Realizing people's dreams and challenges in the era of
-                    space tourism."
+                    "Realizing Dreams and Aspirations in the Era of Space Exchange."
                   </p>
                 </div>
               </section>
@@ -171,14 +172,14 @@
                     </p>
                   </div>
                   <div class="altitude-heading">
-                    <p class="altitude-caption">“地上”</p>
+                    <p class="altitude-caption" lang="en">EARTH</p>
                   </div>
                   <h2 class="altitude-message" id="altitude-title-ground">
-                    <span class="message-line">JTBの宇宙事業は</span
-                    ><span class="message-line">地上からはじまる</span>
+                    <span class="message-line">宇宙へのすべての挑戦は</span
+                    ><span class="message-line">地上から始まる</span>
                   </h2>
                   <p class="altitude-english" lang="en">
-                    "JTB's space business begins on the ground."
+                    "Where Every Space Challenge Begins."
                   </p>
                 </div>
               </section>
@@ -211,14 +212,14 @@
                     </p>
                   </div>
                   <div class="altitude-heading">
-                    <p class="altitude-caption">“飛行機が飛ぶ高さ”</p>
+                    <p class="altitude-caption" lang="en">SKY</p>
                   </div>
                   <h2 class="altitude-message" id="altitude-title-10km">
-                    <span class="message-line">地球は</span
-                    ><span class="message-line">まだ青くない</span>
+                    <span class="message-line">青い地球は</span
+                    ><span class="message-line">まだ見えない</span>
                   </h2>
                   <p class="altitude-english" lang="en">
-                    "JTB's space business begins on the ground."
+                    "The Edge of the Familiar Sky."
                   </p>
                 </div>
               </section>
@@ -251,14 +252,14 @@
                     </p>
                   </div>
                   <div class="altitude-heading">
-                    <p class="altitude-caption">“成層圏”</p>
+                    <p class="altitude-caption" lang="en">STRATOSPHERE</p>
                   </div>
                   <h2 class="altitude-message" id="altitude-title-25km">
-                    <span class="message-line">気球での宇宙遊覧は</span
-                    ><span class="message-line">実現間近</span>
+                    <span class="message-line">成層圏での宇宙遊覧は</span
+                    ><span class="message-line">もうすぐそこに</span>
                   </h2>
                   <p class="altitude-english" lang="en">
-                    "JTB's space business begins on the ground."
+                    "The Gateway to Space Is Opening."
                   </p>
                 </div>
               </section>
@@ -291,14 +292,13 @@
                     </p>
                   </div>
                   <div class="altitude-heading">
-                    <p class="altitude-caption">“宇宙”</p>
+                    <p class="altitude-caption" lang="en">SPACE</p>
                   </div>
                   <h2 class="altitude-message" id="altitude-title-100km">
-                    <span class="message-line">宇宙空間へ</span
-                    ><span class="message-line">ようこそ</span>
+                    <span class="message-line">宇宙へようこそ</span>
                   </h2>
                   <p class="altitude-english" lang="en">
-                    "JTB's space business begins on the ground."
+                    "Entering the Realm of Space."
                   </p>
                 </div>
               </section>
@@ -331,14 +331,13 @@
                     </p>
                   </div>
                   <div class="altitude-heading">
-                    <p class="altitude-caption">“宇宙”</p>
+                    <p class="altitude-caption" lang="en">SPACE STATION</p>
                   </div>
                   <h2 class="altitude-message" id="altitude-title-400km">
-                    <span class="message-line">国際宇宙ステーションに</span
-                    ><span class="message-line">到達</span>
+                    <span class="message-line">人類の次なる活動拠点へ</span>
                   </h2>
                   <p class="altitude-english" lang="en">
-                    "JTB's space business begins on the ground."
+                    "Humanity's Next Destination."
                   </p>
                 </div>
               </section>
@@ -362,13 +361,13 @@
                     </p>
                   </div>
                   <div class="altitude-heading">
-                    <p class="altitude-caption">“月面”</p>
+                    <p class="altitude-caption" lang="en">MOON</p>
                   </div>
                   <h2 class="altitude-message" id="altitude-title-moon">
-                    <span class="message-line">月面に到達</span>
+                    <span class="message-line">新たな夢が実る星</span>
                   </h2>
                   <p class="altitude-english" lang="en">
-                    "JTB's space business begins on the ground."
+                    "Where New Dreams Become Reality."
                   </p>
                 </div>
               </section>
@@ -401,7 +400,6 @@
               <a class="scroll-cue" href="#altitude-ground"
                 ><span>SCROLL DOWN</span
                 ><img
-                  class=""
                   src="assets/icons/icon-arrow-down.svg"
                   alt=""
                   width="24"
@@ -410,6 +408,7 @@
               <p class="journey-signature" lang="en">JTB × SPACE BUSINESS</p>
             </div>
           </div>
+          <!-- VISION：スクロールに合わせて文章を明るくする -->
           <section class="vision" id="vision" aria-labelledby="vision-heading">
             <div class="vision-stage">
               <div class="vision-content container">
@@ -430,6 +429,7 @@
             </div>
           </section>
         </div>
+        <!-- EARTH × SPACE：タブ・カード・背景を同期 -->
         <section
           class="earth-space"
           id="earth-space"
@@ -465,7 +465,7 @@
             <h2 id="earth-heading">EARTH × SPACE</h2>
             <div class="side-tabs" aria-label="地球と宇宙での役割">
               <div class="side-choice">
-                <span>地上</span
+                <span>地球</span
                 ><button
                   type="button"
                   id="tab-earth"
@@ -479,7 +479,7 @@
                 </button>
               </div>
               <div class="side-choice">
-                <span>宇宙-地上</span
+                <span>宇宙-地球</span
                 ><button
                   type="button"
                   id="tab-connect"
@@ -547,7 +547,7 @@
                   aria-labelledby="tab-space"
                 >
                   <ul>
-                    <li>宇宙空間へのJTB拠点設置</li>
+                    <li>宇宙空間での拠点設置</li>
                     <li>宇宙での滞在施設運営</li>
                     <li>ランドオペレーター事業</li>
                     <li>宇宙発着の滞在プラン造成</li>
@@ -558,12 +558,23 @@
                 </article>
               </div>
               <button
-                class="side-next"
+                class="side-arrow side-prev"
+                type="button"
+                aria-label="前の役割を表示"
+              >
+                <img
+                  src="assets/icons/icon-chevron-white.svg"
+                  alt=""
+                  width="24"
+                  height="24"
+                />
+              </button>
+              <button
+                class="side-arrow side-next"
                 type="button"
                 aria-label="次の役割を表示"
               >
                 <img
-                  class=""
                   src="assets/icons/icon-chevron-white.svg"
                   alt=""
                   width="24"
@@ -573,12 +584,13 @@
             </div>
           </div>
         </section>
+        <!-- DOMAIN：各詳細は独立して開閉 -->
         <section class="domain" id="domain">
           <div class="container">
             <div class="section-heading">
               <div>
                 <h2>DOMAIN</h2>
-                <p>業務領域</p>
+                <p>事業領域</p>
               </div>
               <span aria-hidden="true"></span>
             </div>
@@ -595,7 +607,6 @@
                     ><span class="sr-only">：街をつくるの詳細</span
                     ><span class="details-icon"
                       ><img
-                        class=""
                         src="assets/icons/icon-plus.svg"
                         alt=""
                         width="24"
@@ -625,7 +636,6 @@
                     ><span class="sr-only">：交流をつくるの詳細</span
                     ><span class="details-icon"
                       ><img
-                        class=""
                         src="assets/icons/icon-plus.svg"
                         alt=""
                         width="24"
@@ -655,7 +665,6 @@
                     ><span class="sr-only">：人をつくるの詳細</span
                     ><span class="details-icon"
                       ><img
-                        class=""
                         src="assets/icons/icon-plus.svg"
                         alt=""
                         width="24"
@@ -690,7 +699,6 @@
                       >：0から1をつくる（未来をつくる）の詳細</span
                     ><span class="details-icon"
                       ><img
-                        class=""
                         src="assets/icons/icon-plus.svg"
                         alt=""
                         width="24"
@@ -718,6 +726,7 @@
           </div>
         </section>
       </div>
+      <!-- NEWS -->
       <section class="news section-space" id="news">
         <div class="container">
           <div class="section-heading">
@@ -736,7 +745,6 @@
               <p>JTB×宇宙のホームページを公開しました。</p>
               <span class="news-arrow" aria-hidden="true"
                 ><img
-                  class=""
                   src="assets/icons/icon-news-chevron.svg"
                   alt=""
                   width="24"
@@ -751,7 +759,6 @@
               <p>TeNQ</p>
               <span class="news-arrow" aria-hidden="true"
                 ><img
-                  class=""
                   src="assets/icons/icon-news-chevron.svg"
                   alt=""
                   width="24"
@@ -766,7 +773,6 @@
               <p>【福島県】福島スペースカンファレンスに協賛しました。</p>
               <span class="news-arrow" aria-hidden="true"
                 ><img
-                  class=""
                   src="assets/icons/icon-news-chevron.svg"
                   alt=""
                   width="24"
@@ -784,7 +790,6 @@
               </p>
               <span class="news-arrow" aria-hidden="true"
                 ><img
-                  class=""
                   src="assets/icons/icon-news-chevron.svg"
                   alt=""
                   width="24"
@@ -801,7 +806,6 @@
               </p>
               <span class="news-arrow" aria-hidden="true"
                 ><img
-                  class=""
                   src="assets/icons/icon-news-chevron.svg"
                   alt=""
                   width="24"
@@ -816,7 +820,6 @@
               <p>【神奈川県】神奈川宇宙サミットに出展・登壇しました。</p>
               <span class="news-arrow" aria-hidden="true"
                 ><img
-                  class=""
                   src="assets/icons/icon-news-chevron.svg"
                   alt=""
                   width="24"
@@ -831,7 +834,6 @@
               <p>JTB宇宙事業開発グループが発足しました。</p>
               <span class="news-arrow" aria-hidden="true"
                 ><img
-                  class=""
                   src="assets/icons/icon-news-chevron.svg"
                   alt=""
                   width="24"
@@ -841,6 +843,7 @@
           </ul>
         </div>
       </section>
+      <!-- PROJECT：リンク先は導入時に設定 -->
       <section class="project section-space" id="project">
         <div class="container">
           <div class="section-heading">
@@ -851,36 +854,22 @@
             <span aria-hidden="true"></span>
           </div>
           <div class="project-card">
-            <div class="project-logos">
-              <img
-                src="assets/images/logo-open-universe.webp"
-                alt="OPEN UNIVERSE PROJECT"
-                width="300"
-                height="90"
-                loading="lazy"
-              /><img
-                class="project-cross"
-                src="assets/icons/icon-partner-cross.svg"
-                alt=""
-                width="24"
-                height="24"
-              /><img
-                src="assets/images/logo-jtb-red.webp"
-                alt="JTB"
-                width="176"
-                height="108"
-                loading="lazy"
-              />
-            </div>
+            <img
+              class="project-logo"
+              src="assets/images/logo-open-universe.webp"
+              alt="OPEN UNIVERSE PROJECT"
+              width="300"
+              height="90"
+              loading="lazy"
+            />
             <p>
-              株式会社JTBは、気球での宇宙遊覧の実現を目指す株式会社岩谷技研が主催する「OPEN
+              JTBは、気球での宇宙遊覧の実現を目指す岩谷技研が主催する「OPEN
               UNIVERSE PROJECT」に共創パートナーとして参画しています。
             </p>
             <span class="cta cta--project" data-link-pending="project"
               ><span>プロジェクトの詳細はこちら</span
               ><span class="cta-arrow"
                 ><img
-                  class=""
                   src="assets/icons/icon-project-chevron.svg"
                   alt=""
                   width="24"
@@ -889,6 +878,7 @@
           </div>
         </div>
       </section>
+      <!-- CONTACT：リンク先は導入時に設定 -->
       <section class="contact" id="contact" aria-labelledby="contact-heading">
         <img
           class="contact-background"
@@ -907,24 +897,28 @@
             height="143"
             loading="lazy"
           />
-          <div class="contact-columns">
-            <div class="contact-lead">
-              <p class="contact-tagline">
-                宇宙交流時代に人々の想いや挑戦を実現する
+          <div class="contact-copy">
+            <h2 id="contact-heading">
+              宇宙交流時代に人々の想いや挑戦を実現する
+            </h2>
+            <div class="contact-body">
+              <p>
+                宇宙との関わり方は、ロケットや衛星だけではありません。
               </p>
-              <h2 id="contact-heading">
-                宇宙を、未来の事業の柱に。<br />地域の新たな可能性に。<br />次世代の学びに。
-              </h2>
+              <p>
+                地域新興、異業種参入、教育、人財育成など、<br />
+                さまざまな可能性が広がっています。
+              </p>
+              <p>
+                JTBは、地域、企業、学校そしてそこで活動する人々をつなぎ、<br />
+                宇宙から生まれる新しい可能性を、皆さまと共につくっていきます。
+              </p>
             </div>
-            <p class="contact-body">
-              宇宙との関わり方は、ロケットや衛星だけではありません。地域新興、異業種参入、教育、人財育成など、さまざまな可能性が広がっています。JTBは、地域、企業、学校そしてそこで活動する人々をつなぎ、宇宙から生まれる新しい可能性を、皆さまと共につくっていきます。
-            </p>
           </div>
           <span class="cta cta--contact" data-link-pending="contact"
             ><span>お問い合わせはこちら</span
             ><span class="cta-arrow"
               ><img
-                class=""
                 src="assets/icons/icon-contact-chevron.svg"
                 alt=""
                 width="24"
@@ -945,7 +939,6 @@
       <div class="corporate-footer-top footer-container">
         <p class="corporate-footer-title">
           企業・団体向けサービス<img
-            class=""
             src="assets/icons/icon-arrow-red.svg"
             alt=""
             width="24"
@@ -993,7 +986,6 @@
         <p class="footer-download">
           お役立ち資料<span
             ><img
-              class=""
               src="assets/icons/icon-download-white.svg"
               alt=""
               width="24"
@@ -1006,7 +998,6 @@
           <div class="footer-banner footer-banner--government">
             <strong>自治体・行政機関向け</strong><span>情報はこちら</span
             ><img
-              class=""
               src="assets/icons/icon-arrow-white.svg"
               alt=""
               width="24"
@@ -1016,7 +1007,6 @@
           <div class="footer-banner footer-banner--education">
             <strong>学校・教育機関向け</strong><span>情報はこちら</span
             ><img
-              class=""
               src="assets/icons/icon-arrow-white.svg"
               alt=""
               width="24"
@@ -1040,7 +1030,6 @@
             <ul>
               <li>
                 会社情報<img
-                  class=""
                   src="assets/icons/icon-external-gray.svg"
                   alt=""
                   width="24"
@@ -1049,7 +1038,6 @@
               </li>
               <li>
                 個人情報保護方針<img
-                  class=""
                   src="assets/icons/icon-external-gray.svg"
                   alt=""
                   width="24"
@@ -1063,7 +1051,6 @@
           <div class="footer-social">
             <span
               ><img
-                class=""
                 src="assets/icons/icon-facebook.svg"
                 alt=""
                 width="24"
@@ -1071,7 +1058,6 @@
               />JTB for Business Facebook</span
             ><span
               ><img
-                class=""
                 src="assets/icons/icon-youtube.svg"
                 alt=""
                 width="24"

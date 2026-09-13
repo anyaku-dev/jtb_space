@@ -1,0 +1,857 @@
+/* コンテンツセクション：表示演出、SIDE、DOMAIN、NEWS、PROJECT、CONTACT */
+
+.has-reveal-motion .reveal-target {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s ease var(--reveal-delay, 0ms),
+    transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) var(--reveal-delay, 0ms);
+}
+.has-reveal-motion .reveal-target.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* EARTH × SPACE：タブとカード、背景を同期する。 */
+.earth-space {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 916px;
+  padding-block: 120px 100px;
+}
+.side-background,
+.side-shade {
+  position: absolute;
+  inset: -30px;
+  width: calc(100% + 60px);
+  height: calc(100% + 60px);
+  z-index: -1;
+}
+.side-background {
+  object-fit: cover;
+  object-position: center;
+  filter: blur(22px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.side-background[data-background="2"] {
+  filter: blur(12px);
+  object-position: center 42%;
+}
+.side-background.is-selected {
+  opacity: 1;
+}
+.side-shade {
+  background: linear-gradient(#0008, #0002 65%, #0006);
+}
+.earth-space h2 {
+  font-family: var(--font-latin);
+  font-size: 49.83px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.side-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 257px));
+  gap: 98px;
+  justify-content: center;
+  margin: 70px auto 74px;
+  max-width: calc(100% - 48px);
+}
+.side-choice {
+  text-align: center;
+  position: relative;
+}
+.side-choice > span {
+  display: block;
+  font-size: 22.57px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.side-tab {
+  font-family: var(--font-latin);
+  font-size: 30.57px;
+  line-height: 1.4;
+  border: 2px solid #fff;
+  border-radius: 99px;
+  width: 100%;
+  min-height: 69px;
+  background: #0010204d;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+.side-tab[aria-selected="true"] {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.side-tab:hover {
+  background: #c91f31bb;
+}
+.side-choice + .side-choice::before {
+  content: "";
+  position: absolute;
+  left: -98px;
+  bottom: 33px;
+  width: 98px;
+  height: 1px;
+  background: url("../assets/icons/side-connector.svg") center/100% 1px
+    no-repeat;
+}
+.side-carousel {
+  --card-width: 496px;
+  --card-gap: 52px;
+  position: relative;
+  max-width: 100%;
+}
+.side-track {
+  display: grid;
+  gap: var(--card-gap);
+  width: min(1100px, calc(100% - 48px));
+  margin: auto;
+}
+.side-card {
+  font-size: 18px;
+  line-height: 1.9;
+}
+.side-card ul {
+  font-weight: 400;
+  border-radius: var(--radius-card);
+  padding: 42px 58px;
+  min-height: 267px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.88);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+.side-card li {
+  padding-left: 1em;
+  position: relative;
+}
+.side-card li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+}
+.side-role {
+  font-family: var(--font-latin);
+  margin: 20px 24px 0;
+  font-size: 20px;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  white-space: nowrap;
+}
+.side-role > span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  flex-shrink: 0;
+}
+.side-arrow {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  top: 104px;
+  left: calc(50% + var(--card-width) / 2 + var(--card-gap) / 2 - 30px);
+  background: #000;
+  border: 1px solid #ffffff30;
+  border-radius: 50%;
+  place-items: center;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+.side-prev {
+  left: calc(50% - var(--card-width) / 2 - var(--card-gap) / 2 - 30px);
+  --arrow-direction: -1;
+}
+.side-prev > img {
+  rotate: 180deg;
+}
+.side-arrow > img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.25s ease;
+}
+.side-arrow:hover {
+  background: var(--color-primary);
+}
+.earth-space.has-tabs .side-arrow {
+  display: grid;
+}
+.has-tabs .side-track {
+  display: flex;
+  gap: var(--card-gap);
+  width: 100%;
+  margin-left: calc(50% - var(--card-width) / 2);
+  transform: translateX(var(--track-offset, 0px));
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.has-tabs .side-card {
+  flex: 0 0 var(--card-width);
+  opacity: 0.45;
+  transition: opacity 0.5s;
+}
+.has-tabs .side-card.is-selected {
+  opacity: 1;
+}
+/* DOMAIN以降で共通する見出しと余白。 */
+.section-space {
+  padding-block: var(--space-section);
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 64px;
+  gap: 20px;
+}
+.section-heading h2 {
+  font-family: var(--font-latin);
+  font-size: 70px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+.section-heading p {
+  font-size: 20px;
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin-top: 8px;
+}
+.section-heading > span {
+  height: 1px;
+  width: 40px;
+  background: var(--color-muted);
+  opacity: 0.5;
+  margin-bottom: 7px;
+  flex-shrink: 0;
+}
+/* DOMAIN：詳細を開閉できる領域。 */
+.domain {
+  position: relative;
+  isolation: isolate;
+  padding-block: 160px 120px;
+  overflow: hidden;
+}
+.domain-grid {
+  display: grid;
+  gap: 80px;
+}
+.domain-number {
+  color: var(--color-primary);
+  font-family: var(--font-latin);
+  font-size: 39px;
+  line-height: 1.4;
+}
+.domain h3 {
+  font-family: "Zen Old Mincho", serif;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+.domain-subtitle {
+  display: inline;
+}
+.domain-lead {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.9;
+  color: #fff9;
+  margin-top: 10px;
+  font-style: italic;
+}
+.domain details {
+  margin-top: 28px;
+  border-top: 1px solid #ffffff26;
+  border-bottom: 1px solid #ffffff26;
+  transition: border-color 0.3s ease;
+}
+.domain summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 16px;
+  list-style: none;
+  font-size: 14px;
+  line-height: 22px;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+.domain summary::-webkit-details-marker {
+  display: none;
+}
+.domain summary:hover {
+  background: #ffffff0a;
+}
+.details-icon > img {
+  width: 18px;
+  height: 18px;
+}
+.details-label,
+.details-icon {
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.details-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.minus {
+  display: none;
+  font-size: 26px;
+  line-height: 18px;
+}
+.domain details[open] .details-icon > img {
+  display: none;
+}
+.domain details[open] .minus {
+  display: inline;
+}
+.domain-detail {
+  padding: 12px 16px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.2;
+  color: #f5f5f5;
+}
+.domain-detail p + p {
+  margin-top: 16px;
+}
+.domain-detail p:last-child {
+  color: #ffffffa8;
+  font-size: 14px;
+}
+/* NEWS：記事一覧。 */
+.news-list {
+  border-top: 1px solid var(--color-line);
+}
+.news-row {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 28px 16px;
+  border-bottom: 1px solid var(--color-line);
+  min-height: 88px;
+  font-size: 16px;
+  line-height: 1.6;
+  transition: background 0.3s ease;
+}
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  flex-shrink: 0;
+}
+.news-meta time {
+  font-family: var(--font-latin);
+  font-size: 14px;
+  color: var(--color-muted);
+  width: 92px;
+}
+.news-tag {
+  display: grid;
+  place-items: center;
+  background: var(--color-primary);
+  border-radius: 3px;
+  font-size: 11px;
+  line-height: 18px;
+  min-height: 24px;
+  width: 110px;
+  padding: 3px 6px;
+  font-family: Inter, "Noto Sans JP", sans-serif;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.news-row > p {
+  flex: 1;
+  transition:
+    color 0.3s ease,
+    transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.news-arrow {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border: 1px solid #ffffff21;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+.news-arrow img {
+  width: 12px;
+  height: 12px;
+}
+.news-row:first-child .news-arrow,
+.news-row:last-child .news-arrow {
+  visibility: hidden;
+}
+@media (hover: hover) and (pointer: fine) {
+  .side-tab:hover,
+  .side-tab:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px #0005;
+  }
+  .side-card.is-selected:hover ul,
+  .side-card.is-selected:focus-within ul {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 42px #0008;
+  }
+  .side-arrow:hover,
+  .side-arrow:focus-visible {
+    border-color: var(--color-primary);
+    transform: translateX(calc(var(--arrow-direction, 1) * 3px));
+  }
+  .side-arrow:hover > img,
+  .side-arrow:focus-visible > img {
+    transform: translateX(calc(var(--arrow-direction, 1) * 2px));
+  }
+  .domain details:hover {
+    border-color: #ffffff5c;
+  }
+  .domain summary:hover .details-label,
+  .domain summary:focus-visible .details-label {
+    transform: translateX(6px);
+  }
+  .domain summary:hover .details-icon,
+  .domain summary:focus-visible .details-icon {
+    transform: translateX(-4px) scale(1.08);
+  }
+  .news-row:hover,
+  .news-row:focus-within {
+    background: #ffffff0a;
+  }
+  .news-row:hover > p,
+  .news-row:focus-within > p {
+    color: #fff;
+    transform: translateX(6px);
+  }
+  .news-row:hover .news-tag,
+  .news-row:focus-within .news-tag {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px #c91f3152;
+  }
+  .news-row:hover .news-arrow,
+  .news-row:focus-within .news-arrow {
+    border-color: #ffffff66;
+    background: #ffffff0d;
+    transform: translateX(3px);
+  }
+}
+/* PROJECT：プロジェクトロゴと説明文、中央の案内ボタン。 */
+.project-card {
+  border-radius: 9px;
+  background: #f5f5f5;
+  color: #000;
+  padding: 64px 40px 40px;
+  display: grid;
+  grid-template-columns: minmax(160px, 230px) minmax(0, 1fr);
+  align-items: center;
+  gap: 48px 40px;
+}
+.project-logo {
+  width: 230px;
+  height: auto;
+  justify-self: center;
+}
+.project-card > .cta--project {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+.project-card > p {
+  font-size: 20px;
+  line-height: 1.8;
+  max-width: 760px;
+  text-align: center;
+}
+.cta {
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-radius: 3px;
+  padding: 8px 12px;
+  min-height: 48px;
+  width: 374px;
+  max-width: 100%;
+  font-size: 15px;
+  line-height: 1.7;
+  letter-spacing: 0.08em;
+}
+.cta > span:first-child {
+  flex: 1;
+  text-align: center;
+}
+.cta-arrow {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  flex-shrink: 0;
+}
+.cta-arrow img {
+  width: 12px;
+  height: 12px;
+}
+/* CONTACT：地球背景と問い合わせ導線。 */
+.contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 122px 0 174px;
+  min-height: 880px;
+}
+.contact-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.contact-content {
+  width: min(840px, calc(100% - 2 * var(--gutter)));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-logo {
+  width: 228px;
+}
+.contact-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
+  width: 100%;
+  margin-top: 69px;
+}
+.contact h2 {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(24px, 2vw, 30px);
+  line-height: 1.7667;
+  letter-spacing: 0;
+  text-align: center;
+}
+.contact-body {
+  font-size: 13px;
+  line-height: 28px;
+  font-weight: 500;
+  text-align: center;
+}
+.contact-body > p + p {
+  margin-top: 28px;
+}
+.cta--contact {
+  width: 530px;
+  min-height: 78px;
+  margin-top: 107px;
+  padding: 12px 20px;
+  font-size: 26px;
+  line-height: 1.25;
+  letter-spacing: 0.1em;
+  border-radius: 5px;
+}
+.cta--contact .cta-arrow {
+  width: 53px;
+  height: 53px;
+}
+.cta--contact .cta-arrow img {
+  width: 20px;
+  height: 20px;
+}
+.bottom-navigation {
+  padding: 20px 24px 30px;
+}
+
+/* 画面幅別の各コンテンツセクション */
+@media (max-width: 1199px) {
+  .side-tabs {
+    gap: 50px;
+    grid-template-columns: repeat(3, minmax(0, 230px));
+  }
+  .side-choice + .side-choice::before {
+    width: 50px;
+    left: -50px;
+  }
+  .side-tab {
+    font-size: 24px;
+  }
+  .news-meta {
+    gap: 24px;
+  }
+  .news-row {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .earth-space {
+    padding: 72px 0 70px;
+    min-height: 0;
+  }
+  .earth-space h2 {
+    font-size: 28px;
+    line-height: 40px;
+    letter-spacing: 0;
+  }
+  .side-tabs {
+    width: calc(100% - 48px);
+    max-width: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 46px auto;
+  }
+  .side-choice > span {
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+  .side-tab {
+    font-size: 12px;
+    line-height: 20px;
+    min-height: 44px;
+    border-width: 1px;
+  }
+  .side-choice + .side-choice::before {
+    width: 12px;
+    left: -12px;
+    bottom: 21px;
+  }
+  .side-carousel {
+    --card-width: calc(100vw - 48px);
+    --card-gap: 24px;
+  }
+  .side-card {
+    font-size: 14px;
+    line-height: 28px;
+  }
+  .side-card ul {
+    min-height: 188px;
+    padding: 24px 44px 24px 24px;
+    border-radius: 14px;
+  }
+  .side-role {
+    font-size: 11px;
+    line-height: 20px;
+    margin: 20px 0 0;
+    gap: 12px;
+  }
+  .side-role > span {
+    width: 6px;
+    height: 6px;
+  }
+  .side-arrow {
+    left: auto;
+    right: 28px;
+    top: calc(94px - 22px);
+    width: 44px;
+    height: 44px;
+  }
+  .side-prev {
+    left: 28px;
+    right: auto;
+  }
+  .side-arrow > img {
+    width: 18px;
+    height: 18px;
+  }
+  .has-tabs .side-track {
+    margin-left: 24px;
+  }
+  .side-background {
+    object-position: center;
+  }
+  .section-heading {
+    margin-bottom: 40px;
+  }
+  .section-heading h2 {
+    font-size: 36px;
+    line-height: 50px;
+  }
+  .section-heading p {
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 0;
+  }
+  .section-heading > span {
+    margin-bottom: 2px;
+  }
+  .domain {
+    padding-block: 80px;
+  }
+  .domain-grid {
+    gap: 48px;
+  }
+  .domain .section-heading {
+    margin-bottom: 48px;
+  }
+  .domain-number {
+    font-size: 26px;
+    line-height: 36px;
+  }
+  .domain h3 {
+    font-size: 24px;
+    line-height: 36px;
+    margin-top: 10px;
+  }
+  .domain-subtitle {
+    display: block;
+  }
+  .domain-lead {
+    font-size: 14px;
+    line-height: 26px;
+    margin-top: 10px;
+  }
+  .domain details {
+    margin-top: 24px;
+  }
+  .domain summary {
+    font-size: 13px;
+    line-height: 22px;
+    height: 52px;
+  }
+  .domain-detail {
+    font-size: 14px;
+    line-height: 2;
+    padding-inline: 8px;
+  }
+  .domain-detail p:last-child {
+    font-size: 12px;
+  }
+  .news-row {
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 24px 0;
+    min-height: 0;
+    font-size: 15px;
+    line-height: 27px;
+  }
+  .news-meta {
+    gap: 54px;
+    min-height: 44px;
+  }
+  .news-meta time {
+    font-size: 12px;
+    line-height: 20px;
+    width: 84px;
+  }
+  .news-arrow {
+    display: none;
+  }
+  .project-card {
+    padding: 24px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .project-card > p {
+    font-size: 14px;
+    line-height: 26px;
+    width: 100%;
+  }
+  .cta {
+    width: 100%;
+    min-height: 56px;
+    padding: 12px 16px;
+    font-size: 13px;
+    letter-spacing: 0;
+  }
+  .contact {
+    padding: 72px 0 48px;
+    min-height: 717px;
+  }
+  .contact-copy {
+    margin-top: 36px;
+    gap: 24px;
+  }
+  .contact-logo {
+    width: 152px;
+  }
+  .contact h2 {
+    font-size: 23px;
+    line-height: 39px;
+    letter-spacing: 0;
+  }
+  .contact-body {
+    font-size: 15px;
+    line-height: 29px;
+    width: 100%;
+    text-align: left;
+  }
+  .contact-body br {
+    display: none;
+  }
+  .cta--contact {
+    min-height: 60px;
+    margin-top: 32px;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.8px;
+  }
+  .cta--contact .cta-arrow {
+    width: 36px;
+    height: 36px;
+  }
+  .cta--contact .cta-arrow img {
+    width: 16px;
+    height: 16px;
+  }
+  .bottom-navigation {
+    padding: 21px 24px;
+    height: 88px;
+  }
+}
+
+/* 動きを減らす設定ではセクション内の遷移を停止する。 */
+@media (prefers-reduced-motion: reduce) {
+  .side-background,
+  .side-tab,
+  .side-track,
+  .side-card,
+  .side-card ul,
+  .side-arrow,
+  .side-arrow > img,
+  .domain details,
+  .domain summary,
+  .details-label,
+  .details-icon,
+  .news-row,
+  .news-tag,
+  .news-row > p,
+  .news-arrow {
+    transition: none;
+  }
+  .has-reveal-motion .reveal-target {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

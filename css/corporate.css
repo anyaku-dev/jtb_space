@@ -1,0 +1,389 @@
+/* コーポレート共通：ヘッダーとフッター */
+
+/* The host replaces the corporate header/footer blocks. They are intentionally static. */
+.corporate-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 20;
+  height: var(--header-height);
+  background: linear-gradient(110deg, #001c7b, #005ac8 60%, #00a7e1);
+  padding: 16px 40px;
+  padding-top: calc(16px + var(--safe-top));
+  padding-left: max(40px, env(safe-area-inset-left, 0px));
+  padding-right: max(40px, env(safe-area-inset-right, 0px));
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  font-family: var(--font-corporate);
+}
+.corporate-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.corporate-brand > img {
+  width: 88px;
+  height: 52px;
+  object-fit: contain;
+}
+.corporate-brand > span {
+  font-size: 14px;
+  line-height: 21px;
+}
+.corporate-desktop {
+  margin-left: auto;
+  width: min(1060px, 100%);
+}
+.corporate-topline,
+.corporate-mainline {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+}
+.corporate-topline {
+  gap: 28px;
+  margin-bottom: 12px;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.audiences,
+.corporate-utility {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.audiences {
+  flex-shrink: 0;
+}
+.audiences > span {
+  padding: 3px 10px;
+  border: 1px solid #ffffffa8;
+  border-radius: 20px;
+  font-size: 10px;
+}
+.audiences > span:first-child {
+  background: white;
+  color: #001c7b;
+}
+.corporate-utility {
+  gap: 20px;
+}
+.corporate-mainline {
+  font-size: 15px;
+  gap: 28px;
+}
+.corporate-mainline > img {
+  width: 22px;
+}
+.corporate-outline,
+.corporate-contact {
+  padding: 8px 22px;
+  white-space: nowrap;
+  border-radius: 2px;
+}
+.corporate-outline {
+  border: 1px solid #a0c8ea;
+}
+.corporate-contact {
+  background: var(--color-primary);
+}
+.corporate-mobile {
+  display: none;
+}
+
+/* フッター */
+.corporate-footer {
+  background: #fff;
+  color: #333;
+  font-family: var(--font-corporate);
+  font-size: 14px;
+}
+.footer-container {
+  width: min(1082px, calc(100% - 48px));
+  margin-inline: auto;
+}
+.corporate-footer-top {
+  padding-block: 56px 40px;
+}
+.corporate-footer-title {
+  font-size: 22px;
+  color: #001c7b;
+  border-bottom: 2px solid #333;
+  padding-block: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.corporate-footer-title img {
+  width: 9px;
+  height: 14px;
+}
+.corporate-footer-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1.5fr 1fr;
+  gap: 44px;
+  padding-top: 24px;
+}
+.footer-primary li {
+  font-size: 16px;
+  line-height: 2.6;
+}
+.footer-services > p,
+.footer-needs > p {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+.footer-services ul {
+  columns: 2;
+  column-gap: 20px;
+}
+.footer-services li,
+.footer-needs li {
+  font-size: 12px;
+  line-height: 2.7;
+  break-inside: avoid;
+}
+.footer-download {
+  margin-top: 28px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 14px;
+}
+.footer-download > span {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #001c7b;
+  display: grid;
+  place-items: center;
+}
+.footer-download img {
+  width: 19px;
+  height: 18px;
+}
+.footer-banners-wrap {
+  padding: 40px 0;
+  background: #f5f5f5;
+}
+.footer-banners {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.footer-banner {
+  position: relative;
+  min-height: 100px;
+  text-align: center;
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 36px;
+}
+.footer-banner--government {
+  background: linear-gradient(90deg, #284632, #197d46 60%, #8cb400);
+}
+.footer-banner--education {
+  background: linear-gradient(90deg, #ff6400, orange 60%, #ffc800);
+}
+.footer-banner strong {
+  font-size: 24px;
+  line-height: 1.5;
+}
+.footer-banner > span {
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 2px;
+}
+.footer-banner img {
+  position: absolute;
+  right: 20px;
+  top: calc(50% - 7px);
+  width: 6px;
+  height: 13px;
+}
+.footer-bottom {
+  background: #333;
+  color: #fff;
+  padding: 32px 0 38px;
+}
+.footer-utility ul {
+  display: flex;
+  gap: 36px;
+  justify-content: center;
+}
+.footer-legal ul {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  margin-top: 28px;
+}
+.footer-legal li {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 12px;
+  color: #ccc;
+}
+.footer-legal img {
+  width: 14px;
+  height: 14px;
+}
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 28px;
+  font-size: 12px;
+}
+.footer-social > span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer-social img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+.copyright {
+  background: #c00;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 16px 24px;
+  padding-bottom: calc(16px + var(--safe-bottom));
+}
+
+/* 画面幅別のヘッダー・フッター */
+@media (max-width: 1199px) {
+  .corporate-header {
+    height: var(--header-height);
+    padding: 16px;
+    padding-top: calc(16px + var(--safe-top));
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .corporate-brand > img {
+    width: 66px;
+    height: 39px;
+  }
+  .corporate-brand > span {
+    font-size: 10.535px;
+    line-height: 15.8px;
+  }
+  .corporate-brand {
+    gap: 9px;
+  }
+  .corporate-desktop {
+    display: none;
+  }
+  .corporate-mobile {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .corporate-mobile > img:first-child {
+    width: 20px;
+    height: 20px;
+    margin: 12px;
+  }
+  .corporate-mobile > img:last-child {
+    width: 44px;
+    height: 44px;
+  }
+  .corporate-footer-grid {
+    gap: 24px;
+  }
+  .footer-services ul {
+    columns: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .corporate-footer-top {
+    padding-block: 40px 24px;
+  }
+  .corporate-footer-title {
+    font-size: 18px;
+    line-height: 28px;
+  }
+  .corporate-footer-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .footer-primary li {
+    font-size: 16px;
+    line-height: 44px;
+  }
+  .footer-services > p,
+  .footer-needs > p {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 12px;
+  }
+  .footer-services li,
+  .footer-needs li {
+    font-size: 14px;
+    line-height: 30px;
+  }
+  .footer-download {
+    margin-top: 24px;
+    justify-content: space-between;
+  }
+  .footer-banners-wrap {
+    padding: 24px 0;
+    background: #fff;
+  }
+  .footer-banners {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .footer-banner {
+    min-height: 80px;
+  }
+  .footer-banner strong {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .footer-bottom {
+    padding: 24px 0;
+  }
+  .footer-utility ul,
+  .footer-legal ul {
+    display: block;
+  }
+  .footer-utility li {
+    font-size: 14px;
+    line-height: 44px;
+  }
+  .footer-legal ul {
+    margin-top: 24px;
+  }
+  .footer-legal li {
+    font-size: 14px;
+    min-height: 44px;
+    justify-content: space-between;
+    border-bottom: 1px solid #666;
+  }
+  .footer-legal img {
+    margin-right: 10px;
+  }
+  .footer-social {
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 24px;
+    font-size: 12px;
+  }
+  .copyright {
+    font-size: 10px;
+    line-height: 18px;
+  }
+}
