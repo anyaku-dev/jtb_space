@@ -49,8 +49,7 @@
   --font-latin: Manrope, "Noto Sans JP", sans-serif;
   --font-corporate: "Noto Sans JP", sans-serif;
   --radius-card: 14px;
-  /* 基本は小さいビューポート高。スマホでは対応ブラウザーに限り
-     下部バーの伸縮に追従する 100dvh へ切り替える。 */
+  /* バーの伸縮でシーンの進捗・文字位置を変えない。写真は別途100lvhで覆う。 */
   --screen-height: 100vh;
   --screen-height: 100svh;
   --safe-top: env(safe-area-inset-top, 0px);
@@ -173,15 +172,6 @@ summary:focus-visible,
   }
   .sp-break {
     display: block;
-  }
-}
-
-/* スマホの写真領域を、ブラウザーUIを除く現在の表示高いっぱいにする。 */
-@supports (height: 100dvh) {
-  @media (max-width: 767px) {
-    :root {
-      --screen-height: 100dvh;
-    }
   }
 }
 

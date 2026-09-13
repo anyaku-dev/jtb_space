@@ -174,6 +174,7 @@
   function initializeJourney(positionCards) {
     const lunarScope = $(".lunar-scope");
     const introLunarImage = $(".intro-lunar-image");
+    const introScope = $(".intro-scope");
     const journey = $(".journey");
     const stage = $(".journey-stage");
     const hero = $(".hero");
@@ -212,7 +213,8 @@
     let mobileBackdrop = null;
     let mobileBackgrounds = [];
 
-    // Safari の固定レイヤーの外に背景を置き、ページ側でスクロールに追従させる。
+    // Safariは画面端のsticky要素を単色で延長するため、SPでは通常の
+    // 絶対配置をスクロールに追従させる。背景は旅路とVISIONで共有する。
     function syncMobileBackdrop() {
       const enabled = animated && narrowScreen.matches;
       if (enabled && !mobileBackdrop) {
@@ -232,14 +234,30 @@
           mobileBackdrop.append(image);
           return image;
         });
-        journey.prepend(mobileBackdrop);
+        introScope.prepend(mobileBackdrop);
       }
-      journey.classList.toggle("has-mobile-backdrop", enabled);
-      if (!enabled) return;
-      const offset = clamp(
+      introScope.classList.toggle("has-mobile-backdrop", enabled);
+      if (!enabled) {
+        stage.style.top = "";
+        return;
+      }
+      stage.style.top = `${clamp(
         window.scrollY - metrics.journeyTop,
         0,
-        Math.max(0, journey.offsetHeight - mobileBackdrop.offsetHeight),
+        Math.max(0, journey.offsetHeight - metrics.height),
+      )}px`;
+      const visionHeight = visionStage.offsetHeight;
+      visionStage.style.top = `${clamp(
+        window.scrollY +
+          Math.min(0, metrics.height - visionHeight) -
+          metrics.visionTop,
+        0,
+        Math.max(0, vision.offsetHeight - visionHeight),
+      )}px`;
+      const offset = clamp(
+        window.scrollY - (introScope.getBoundingClientRect().top + window.scrollY),
+        0,
+        Math.max(0, introScope.offsetHeight - mobileBackdrop.offsetHeight),
       );
       mobileBackdrop.style.top = `${offset}px`;
       mobileBackgrounds.forEach((image, index) => {
@@ -279,7 +297,7 @@
           -Math.expm1(-zoomAnimation.elapsed / SCENE_ZOOM_TIME);
       // scale は PC/SP ごとの既存 crop transform と合成される。
       zoomAnimation.image.style.scale = zoom.toFixed(6);
-      if (journey.classList.contains("has-mobile-backdrop")) {
+      if (introScope.classList.contains("has-mobile-backdrop")) {
         mobileBackgrounds[activeScene + 1].style.scale = zoom.toFixed(6);
       }
       if (zoomAnimation.image === sceneImages[scenes.length - 1]) {
