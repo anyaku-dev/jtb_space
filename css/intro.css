@@ -856,6 +856,11 @@ main > section {
   padding: 0;
   line-height: inherit;
 }
+.intro-scope #altitude-ground .altitude-caption,
+.intro-scope #altitude-title-ground {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
 .intro-scope .message-line {
   display: block;
 }
@@ -996,6 +1001,9 @@ main > section {
   }
   .intro-scope [data-scene="4"] h2.altitude-message {
     font-size: clamp(23px, 7.25vw, 28.275px);
+  }
+  .intro-scope #altitude-title-ground {
+    font-size: clamp(19px, 6.3vw, 31.8px);
   }
   .intro-scope .altitude-measure {
     display: grid;
