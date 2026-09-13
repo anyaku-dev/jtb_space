@@ -134,7 +134,10 @@ main > section {
   gap: 34px;
 }
 .hero-logo {
-  width: 208px;
+  font-family: Arial, sans-serif;
+  font-size: 76px;
+  font-weight: 400;
+  line-height: 1.2;
 }
 .hero-space {
   display: grid;
@@ -144,11 +147,6 @@ main > section {
 .hero-space > span {
   font-size: 59.76px;
   line-height: 1.2;
-  letter-spacing: 0.1em;
-}
-.hero-space small {
-  font-size: 12.76px;
-  line-height: 26px;
   letter-spacing: 0.1em;
 }
 .brand-cross {
@@ -531,7 +529,7 @@ main > section {
     gap: 15.5px;
   }
   .hero-logo {
-    width: 111.19px;
+    font-size: 42px;
   }
   .hero-space {
     gap: 1px;
@@ -541,11 +539,6 @@ main > section {
     font-size: 31.948px;
     line-height: 1.2;
     letter-spacing: 3.1948px;
-  }
-  .hero-space small {
-    font-size: 6.823px;
-    line-height: 13.9px;
-    letter-spacing: 0.6823px;
   }
   .brand-cross {
     width: 12.562px;
@@ -752,7 +745,6 @@ main > section {
   transform: translateY(19px);
 }
 .intro-scope .hero-space > span,
-.intro-scope .hero h1,
 .intro-scope .altitude-caption,
 .intro-scope .altitude-message,
 .intro-scope .vision-copy {
@@ -767,6 +759,7 @@ main > section {
   height: 54px;
 }
 .intro-scope .hero h1 {
+  font-family: var(--font-body);
   font-size: var(--intro-type);
   line-height: 1.684;
   letter-spacing: 0.2em;
@@ -782,13 +775,6 @@ main > section {
 @media (min-width: 768px) {
   .intro-scope .hero-content {
     transform: translateY(min(9.6svh, 83px));
-  }
-  .intro-scope .hero-brand {
-    transform: translateX(-22px);
-  }
-  .intro-scope .hero-space {
-    gap: 13px;
-    transform: translateY(11px);
   }
   .intro-scope .hero-space > span {
     line-height: 49px;
