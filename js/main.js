@@ -115,6 +115,7 @@
       });
     });
     sides.classList.add("has-tabs");
+    $(".side-prev").addEventListener("click", () => selectSide(currentSide - 1));
     $(".side-next").addEventListener("click", () => selectSide(currentSide + 1));
     selectSide(1);
     return { positionCards };
