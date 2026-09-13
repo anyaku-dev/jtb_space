@@ -1122,21 +1122,16 @@ main > section {
   display: none;
 }
 @media (max-width: 767px) {
-  .has-mobile-backdrop .journey {
-    position: relative;
-  }
-  .has-mobile-backdrop .journey-stage,
-  .has-mobile-backdrop .vision-stage {
-    position: absolute;
-    width: 100%;
-  }
   .has-mobile-backdrop .mobile-journey-backdrop {
     display: block;
-    position: absolute;
-    left: 0;
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 100vh;
     height: 100lvh;
+    /* 背景の高さを本文のスクロール距離に加算しない。 */
+    margin-bottom: -100vh;
+    margin-bottom: -100lvh;
     overflow: hidden;
     pointer-events: none;
     background: #000;

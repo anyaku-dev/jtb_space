@@ -213,8 +213,7 @@
     let mobileBackdrop = null;
     let mobileBackgrounds = [];
 
-    // Safariは画面端のsticky要素を単色で延長するため、SPでは通常の
-    // 絶対配置をスクロールに追従させる。背景は旅路とVISIONで共有する。
+    // 背景は旅路とVISIONで共有する。位置の固定はCSSのstickyに任せる。
     function syncMobileBackdrop() {
       const enabled = animated && narrowScreen.matches;
       if (enabled && !mobileBackdrop) {
@@ -237,29 +236,7 @@
         introScope.prepend(mobileBackdrop);
       }
       introScope.classList.toggle("has-mobile-backdrop", enabled);
-      if (!enabled) {
-        stage.style.top = "";
-        return;
-      }
-      stage.style.top = `${clamp(
-        window.scrollY - metrics.journeyTop,
-        0,
-        Math.max(0, journey.offsetHeight - metrics.height),
-      )}px`;
-      const visionHeight = visionStage.offsetHeight;
-      visionStage.style.top = `${clamp(
-        window.scrollY +
-          Math.min(0, metrics.height - visionHeight) -
-          metrics.visionTop,
-        0,
-        Math.max(0, vision.offsetHeight - visionHeight),
-      )}px`;
-      const offset = clamp(
-        window.scrollY - (introScope.getBoundingClientRect().top + window.scrollY),
-        0,
-        Math.max(0, introScope.offsetHeight - mobileBackdrop.offsetHeight),
-      );
-      mobileBackdrop.style.top = `${offset}px`;
+      if (!enabled) return;
       mobileBackgrounds.forEach((image, index) => {
         const selected = index === activeScene + 1;
         image.classList.toggle("is-current", selected);
