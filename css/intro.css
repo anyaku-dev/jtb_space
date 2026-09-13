@@ -1116,6 +1116,29 @@ main > section {
   }
 }
 
+/* 短い・狭いスマホでは左ナビの領域を避け、高度表示だけを縮める。 */
+@media (max-width: 767px) and (max-height: 740px), (max-width: 374px) {
+  .intro-scope .altitude-measure {
+    width: min(220px, calc(100% - 170px));
+    grid-template-columns: 16px minmax(0, 1fr);
+    column-gap: 4px;
+  }
+  .intro-scope .altitude-origin,
+  .intro-scope .altitude-approx {
+    padding-left: 0;
+  }
+  .intro-scope .altitude-approx {
+    font-size: 16px;
+  }
+  .intro-scope .altitude-value {
+    font-size: clamp(18px, calc(10.9091vw - 16.9091px), 24px);
+    top: 0;
+  }
+  .intro-scope .distance {
+    font-size: clamp(28px, calc(21.8182vw - 41.8182px), 40px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .intro-lunar-image {
     scale: 1 !important;
