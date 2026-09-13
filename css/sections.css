@@ -460,32 +460,25 @@
     transform: translateX(3px);
   }
 }
-/* PROJECT：連携ロゴと案内カード。 */
+/* PROJECT：プロジェクトロゴと説明文、中央の案内ボタン。 */
 .project-card {
   border-radius: 9px;
   background: #f5f5f5;
   color: #000;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
+  padding: 64px 40px 40px;
+  display: grid;
+  grid-template-columns: minmax(160px, 230px) minmax(0, 1fr);
   align-items: center;
-  gap: 28px;
+  gap: 48px 40px;
 }
-.project-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 45px;
-}
-.project-logos > img:first-child {
+.project-logo {
   width: 230px;
+  height: auto;
+  justify-self: center;
 }
-.project-logos > img:last-child {
-  width: 138px;
-}
-.project-cross {
-  width: 28px;
-  height: 28px;
+.project-card > .cta--project {
+  grid-column: 1 / -1;
+  justify-self: center;
 }
 .project-card > p {
   font-size: 20px;
@@ -781,24 +774,8 @@
   }
   .project-card {
     padding: 24px;
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px;
-  }
-  .project-logos {
-    gap: 22px;
-    width: 100%;
-  }
-  .project-logos > img:first-child {
-    width: 46.8%;
-    min-width: 0;
-  }
-  .project-logos > img:last-child {
-    width: 27.6%;
-    min-width: 0;
-  }
-  .project-cross {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
   }
   .project-card > p {
     font-size: 14px;
