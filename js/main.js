@@ -209,6 +209,54 @@
     let zoomFrame = 0;
     let readCount = -1;
     let metrics = { height: 0, journeyTop: 0, visionTop: 0, visionTravel: 0 };
+    let mobileBackdrop = null;
+    let mobileBackgrounds = [];
+
+    // Safari の固定レイヤーの外に背景を置き、ページ側でスクロールに追従させる。
+    function syncMobileBackdrop() {
+      const enabled = animated && narrowScreen.matches;
+      if (enabled && !mobileBackdrop) {
+        mobileBackdrop = document.createElement("div");
+        mobileBackdrop.className = "mobile-journey-backdrop";
+        mobileBackdrop.setAttribute("aria-hidden", "true");
+        const sources = [
+          $(".scene-image", hero),
+          ...sceneImages.slice(0, -1),
+          introLunarImage,
+        ];
+        mobileBackgrounds = sources.map((source, index) => {
+          const image = source.cloneNode(false);
+          image.className = "mobile-journey-image";
+          image.dataset.scene = String(index - 1);
+          image.removeAttribute("style");
+          mobileBackdrop.append(image);
+          return image;
+        });
+        journey.prepend(mobileBackdrop);
+      }
+      journey.classList.toggle("has-mobile-backdrop", enabled);
+      if (!enabled) return;
+      const offset = clamp(
+        window.scrollY - metrics.journeyTop,
+        0,
+        Math.max(0, journey.offsetHeight - mobileBackdrop.offsetHeight),
+      );
+      mobileBackdrop.style.top = `${offset}px`;
+      mobileBackgrounds.forEach((image, index) => {
+        const selected = index === activeScene + 1;
+        image.classList.toggle("is-current", selected);
+        if (selected) {
+          image.style.scale =
+            activeScene >= 0
+              ? sceneImages[activeScene].style.scale || "1"
+              : "1";
+        }
+      });
+      mobileBackdrop.style.setProperty(
+        "--mobile-shade",
+        activeScene < 0 ? $(".hero-shade").style.opacity || "0.85" : "0",
+      );
+    }
 
     // 月面ズームは、シーン切替・非表示・VISION 到達で必ず停止する。
     function pauseSceneZoom() {
@@ -231,6 +279,9 @@
           -Math.expm1(-zoomAnimation.elapsed / SCENE_ZOOM_TIME);
       // scale は PC/SP ごとの既存 crop transform と合成される。
       zoomAnimation.image.style.scale = zoom.toFixed(6);
+      if (journey.classList.contains("has-mobile-backdrop")) {
+        mobileBackgrounds[activeScene + 1].style.scale = zoom.toFixed(6);
+      }
       if (zoomAnimation.image === sceneImages[scenes.length - 1]) {
         introLunarImage.style.scale = zoom.toFixed(6);
       }
@@ -344,6 +395,7 @@
       $(".hero-shade").style.opacity = String(
         startShade - clamp(travel / HERO_DISTANCE) * (startShade - 0.2),
       );
+      syncMobileBackdrop();
       if (countAnimation) {
         const t = clamp((now - countAnimation.start) / COUNT_DURATION);
         const eased = 1 - (1 - t) ** 3;
@@ -410,6 +462,7 @@
         visionStage.style.top = "";
         vision.style.removeProperty("--vision-height");
       }
+      syncMobileBackdrop();
       requestUpdate();
     }
     // ハッシュ遷移では、固定ナビと高度シーン専用の位置補正を適用する。
