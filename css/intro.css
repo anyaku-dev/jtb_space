@@ -1122,6 +1122,10 @@ main > section {
   display: none;
 }
 @media (max-width: 767px) {
+  /* 負のmarginを持つsticky背景をVISIONの終端で切り取り、DOMAINへ重ねない。 */
+  .intro-scope.has-mobile-backdrop {
+    overflow: clip;
+  }
   /* 各区間内に重なり順を閉じ、背面のsticky層もリンク操作できるようにする。 */
   .has-mobile-backdrop .journey,
   .has-mobile-backdrop .vision {
