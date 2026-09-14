@@ -169,6 +169,8 @@ main > section {
   margin-top: 10px;
 }
 .scroll-cue {
+  --scroll-arrow-size: 22px;
+  --scroll-arrow-gap: 12px;
   display: none;
   position: absolute;
   z-index: 8;
@@ -179,11 +181,67 @@ main > section {
   line-height: 1.4;
   text-align: center;
   min-height: 44px;
+  color: #fff;
 }
-.scroll-cue > img {
-  width: 22px;
-  height: 22px;
-  margin: 12px auto 0;
+.scroll-cue-arrows {
+  display: block;
+  position: relative;
+  width: var(--scroll-arrow-size);
+  height: var(--scroll-arrow-size);
+  margin: 0 auto var(--scroll-arrow-gap);
+  overflow: hidden;
+}
+.scroll-cue-arrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(var(--scroll-arrow-size) * 0.1);
+  opacity: 0;
+  transform: scale(0.5);
+  animation: scroll-cue-flow 3s ease-out infinite;
+}
+.scroll-cue-arrow:nth-child(1) {
+  animation-delay: -2s;
+}
+.scroll-cue-arrow:nth-child(2) {
+  animation-delay: -1s;
+}
+.scroll-cue-arrow::before,
+.scroll-cue-arrow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 51%;
+  height: 100%;
+  background: currentColor;
+}
+.scroll-cue-arrow::before {
+  left: 0;
+  transform: skewY(30deg);
+  transform-origin: top left;
+}
+.scroll-cue-arrow::after {
+  right: 0;
+  transform: skewY(-30deg);
+  transform-origin: top right;
+}
+@keyframes scroll-cue-flow {
+  25% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+    transform: translateY(calc(var(--scroll-arrow-size) * 0.1));
+  }
+  67% {
+    opacity: 1;
+    transform: translateY(calc(var(--scroll-arrow-size) * 0.52));
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(var(--scroll-arrow-size) * 0.78)) scale(0.5);
+  }
 }
 .journey-signature {
   display: none;
@@ -558,13 +616,10 @@ main > section {
     margin: 14px auto 0;
   }
   .scroll-cue {
+    --scroll-arrow-size: 15.724px;
+    --scroll-arrow-gap: 10px;
     bottom: 28px;
     font-size: 10.811px;
-  }
-  .scroll-cue > img {
-    width: 15.724px;
-    height: 15.724px;
-    margin-top: 10px;
   }
   .journey-signature {
     right: 10px;
@@ -1090,15 +1145,12 @@ main > section {
     display: none;
   }
   .intro-scope .journey.is-travelling .scroll-cue {
+    --scroll-arrow-size: 15.158px;
+    --scroll-arrow-gap: 8px;
     font-family: Inter, sans-serif;
     font-size: 10.421px;
     font-weight: 400;
     bottom: calc(30px + var(--safe-bottom));
-  }
-  .intro-scope .journey.is-travelling .scroll-cue > img {
-    width: 15.158px;
-    height: 15.158px;
-    margin-top: 8px;
   }
   .intro-scope .intro-lunar-image {
     object-position: 40% center;
@@ -1223,6 +1275,14 @@ main > section {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .scroll-cue-arrow {
+    animation: none;
+    opacity: 1;
+    transform: translateY(calc(var(--scroll-arrow-size) * 0.35));
+  }
+  .scroll-cue-arrow:nth-child(n + 2) {
+    display: none;
+  }
   .intro-lunar-image {
     scale: 1 !important;
   }
