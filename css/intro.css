@@ -1035,7 +1035,7 @@ main > section {
     display: grid;
     grid-template-columns: max-content max-content;
     justify-content: center;
-    gap: 0;
+    gap: 0 12px;
     width: min(300px, calc(100% - 48px));
     align-items: center;
   }
@@ -1083,8 +1083,9 @@ main > section {
   .intro-scope .distance {
     font-size: clamp(48px, 14.128205vw, 55.1px);
     line-height: 1.401270417;
+    /* Reserve the widest count (including values such as 37.9万). */
     display: inline-block;
-    width: auto;
+    width: 3.2em;
     text-align: center;
     font-variant-numeric: tabular-nums;
   }
@@ -1218,7 +1219,7 @@ main > section {
 @media (max-width: 767px) and (max-height: 740px), (max-width: 374px) {
   .intro-scope .altitude-measure {
     width: min(220px, calc(100% - 170px));
-    column-gap: 0;
+    column-gap: 4px;
   }
   .intro-scope .altitude-origin,
   .intro-scope .altitude-approx {
