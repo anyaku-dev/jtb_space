@@ -523,16 +523,12 @@
 .cta-arrow img {
   width: 12px;
   height: 12px;
-  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 @media (hover: hover) and (pointer: fine) {
   .cta:hover {
     background-color: #ad1b2a;
     box-shadow: 0 8px 20px #0003;
     transform: translateY(-3px);
-  }
-  .cta:hover .cta-arrow img {
-    transform: translateX(3px);
   }
 }
 .cta:focus-visible {
@@ -541,9 +537,6 @@
   outline: 2px solid currentColor;
   outline-offset: 4px;
   transform: translateY(-3px);
-}
-.cta:focus-visible .cta-arrow img {
-  transform: translateX(3px);
 }
 /* CONTACT：地球背景と問い合わせ導線。 */
 .contact {
@@ -873,14 +866,11 @@
   .news-tag,
   .news-row > p,
   .news-arrow,
-  .cta,
-  .cta-arrow img {
+  .cta {
     transition: none;
   }
   .cta:hover,
-  .cta:focus-visible,
-  .cta:hover .cta-arrow img,
-  .cta:focus-visible .cta-arrow img {
+  .cta:focus-visible {
     transform: none;
   }
   .has-reveal-motion .reveal-target {
