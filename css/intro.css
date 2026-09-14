@@ -930,7 +930,7 @@ main > section {
   display: block;
 }
 .intro-scope .altitude-measure {
-  gap: calc(8px * var(--altitude-size-scale));
+  gap: 0;
 }
 .intro-scope .altitude-copy > .altitude-measure {
   order: 4;
@@ -947,7 +947,7 @@ main > section {
   color: var(--color-primary);
 }
 .intro-scope .altitude-readout .altitude-value {
-  width: calc(245px * var(--altitude-size-scale));
+  width: auto;
 }
 .intro-scope .journey.is-animated .altitude-copy {
   top: 50%;
@@ -1073,7 +1073,7 @@ main > section {
     display: grid;
     grid-template-columns: max-content max-content;
     justify-content: center;
-    gap: 0 12px;
+    gap: 0;
     width: min(300px, calc(100% - 48px));
     align-items: center;
   }
@@ -1120,9 +1120,8 @@ main > section {
   }
   .intro-scope .distance {
     font-size: clamp(48px, 13.93vw, 54.317px);
-    /* Reserve the widest count (including values such as 37.9万). */
     display: inline-block;
-    width: 3.2em;
+    width: auto;
     text-align: center;
     font-variant-numeric: tabular-nums;
   }
@@ -1256,7 +1255,7 @@ main > section {
 @media (max-width: 767px) and (max-height: 740px), (max-width: 374px) {
   .intro-scope .altitude-measure {
     width: min(220px, calc(100% - 170px));
-    column-gap: 4px;
+    column-gap: 0;
   }
   .intro-scope .altitude-origin,
   .intro-scope .altitude-approx {
