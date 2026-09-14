@@ -131,27 +131,14 @@ main > section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 34px;
+  /* ロゴ変更前の行高を保ち、コピーの位置を維持する。 */
+  min-height: 91.2px;
 }
-.hero-logo {
-  font-family: Arial, sans-serif;
-  font-size: 76px;
-  font-weight: 400;
-  line-height: 1.2;
-}
-.hero-space {
-  display: grid;
-  gap: 5px;
-  text-align: center;
-}
-.hero-space > span {
-  font-size: 59.76px;
-  line-height: 1.2;
-  letter-spacing: 0.1em;
-}
-.brand-cross {
-  width: 24px;
-  height: 24px;
+.hero-brand-image {
+  width: min(362.73px, 100%);
+  height: auto;
+  aspect-ratio: 362.73 / 81.55;
+  object-fit: contain;
 }
 .hero h1 {
   font-size: 31.764px;
@@ -584,23 +571,11 @@ main > section {
     transform: translateY(-1px);
   }
   .hero-brand {
-    gap: 15.5px;
+    min-height: 50.4px;
   }
-  .hero-logo {
-    font-size: 42px;
-  }
-  .hero-space {
-    gap: 1px;
-    margin-left: 9px;
-  }
-  .hero-space > span {
-    font-size: 31.948px;
-    line-height: 1.2;
-    letter-spacing: 3.1948px;
-  }
-  .brand-cross {
-    width: 12.562px;
-    height: 12.562px;
+  .hero-brand-image {
+    /* 変更前のSPロゴ全体の実測幅に合わせる。 */
+    width: min(197.953125px, 100%);
   }
   .hero h1 {
     font-size: 19px;
@@ -799,19 +774,13 @@ main > section {
   padding: 0;
   transform: translateY(19px);
 }
-.intro-scope .hero-space > span,
 .intro-scope .altitude-caption,
 .intro-scope .altitude-message,
 .intro-scope .vision-copy {
   font-family: "Zen Old Mincho", serif;
 }
-.intro-scope .hero-space > span,
 .intro-scope .hero h1 {
   font-weight: 400;
-}
-.intro-scope .brand-cross {
-  width: 24px;
-  height: 54px;
 }
 .intro-scope .hero h1 {
   font-family: var(--font-body);
@@ -830,9 +799,6 @@ main > section {
 @media (min-width: 768px) {
   .intro-scope .hero-content {
     transform: translateY(min(9.6svh, 83px));
-  }
-  .intro-scope .hero-space > span {
-    line-height: 49px;
   }
   .intro-scope .hero h1 {
     font-size: clamp(28px, 2.5153vw, 38.031px);
@@ -1019,10 +985,6 @@ main > section {
     line-height: 2.05;
     letter-spacing: 0.08em;
     margin-top: 32px;
-  }
-  .intro-scope .brand-cross {
-    width: 13px;
-    height: 29px;
   }
   .intro-scope .hero-english {
     font-size: 10px;
