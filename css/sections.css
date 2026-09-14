@@ -543,7 +543,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: 122px 0 174px;
+  padding: 100px 0 174px;
   min-height: 880px;
 }
 .contact-background {
@@ -566,15 +566,15 @@
 .contact-copy {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 40px;
+  gap: 38px;
   width: 100%;
-  margin-top: 69px;
+  margin-top: 37px;
 }
 .contact h2 {
   font-family: var(--font-body);
-  font-weight: 400;
-  font-size: clamp(24px, 2vw, 30px);
-  line-height: 1.7667;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 53px;
   letter-spacing: 0;
   text-align: center;
 }
@@ -585,12 +585,15 @@
   text-align: center;
 }
 .contact-body > p + p {
-  margin-top: 28px;
+  margin-top: 27px;
+}
+.contact-body > p + p + p {
+  margin-top: 22px;
 }
 .cta--contact {
   width: 530px;
   min-height: 78px;
-  margin-top: 107px;
+  margin-top: 92px;
   padding: 12px 20px;
   font-size: 26px;
   line-height: 1.25;
@@ -804,18 +807,19 @@
     letter-spacing: 0;
   }
   .contact {
-    padding: 72px 0 48px;
+    padding: 42px 0 48px;
     min-height: 717px;
   }
   .contact-copy {
-    margin-top: 36px;
-    gap: 24px;
+    /* Figmaの固定テキスト枠からはみ出す3行を、通常の行ボックスで再現。 */
+    margin-top: 16px;
+    gap: 35px;
   }
   .contact-logo {
     width: 152px;
   }
   .contact h2 {
-    font-size: 23px;
+    font-size: 27px;
     line-height: 39px;
     letter-spacing: 0;
   }
@@ -827,6 +831,10 @@
   }
   .contact-body br {
     display: none;
+  }
+  .contact-body > p + p,
+  .contact-body > p + p + p {
+    margin-top: 28px;
   }
   .cta--contact {
     min-height: 60px;
