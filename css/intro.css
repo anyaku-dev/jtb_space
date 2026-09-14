@@ -888,7 +888,8 @@ main > section {
   display: block;
 }
 .intro-scope .altitude-measure {
-  gap: 0;
+  /* Match Figma's ~1px bounds gap after the label/value skew (~10px). */
+  gap: 11px;
 }
 .intro-scope .altitude-copy > .altitude-measure {
   order: 4;
