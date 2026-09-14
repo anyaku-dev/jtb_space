@@ -131,27 +131,14 @@ main > section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 34px;
+  /* ロゴ変更前の行高を保ち、コピーの位置を維持する。 */
+  min-height: 91.2px;
 }
-.hero-logo {
-  font-family: Arial, sans-serif;
-  font-size: 76px;
-  font-weight: 400;
-  line-height: 1.2;
-}
-.hero-space {
-  display: grid;
-  gap: 5px;
-  text-align: center;
-}
-.hero-space > span {
-  font-size: 59.76px;
-  line-height: 1.2;
-  letter-spacing: 0.1em;
-}
-.brand-cross {
-  width: 24px;
-  height: 24px;
+.hero-brand-image {
+  width: min(362.73px, 100%);
+  height: auto;
+  aspect-ratio: 362.73 / 81.55;
+  object-fit: contain;
 }
 .hero h1 {
   font-size: 31.764px;
@@ -584,23 +571,11 @@ main > section {
     transform: translateY(-1px);
   }
   .hero-brand {
-    gap: 15.5px;
+    min-height: 50.4px;
   }
-  .hero-logo {
-    font-size: 42px;
-  }
-  .hero-space {
-    gap: 1px;
-    margin-left: 9px;
-  }
-  .hero-space > span {
-    font-size: 31.948px;
-    line-height: 1.2;
-    letter-spacing: 3.1948px;
-  }
-  .brand-cross {
-    width: 12.562px;
-    height: 12.562px;
+  .hero-brand-image {
+    /* 変更前のSPロゴ全体の実測幅に合わせる。 */
+    width: min(197.953125px, 100%);
   }
   .hero h1 {
     font-size: 19px;
@@ -799,19 +774,13 @@ main > section {
   padding: 0;
   transform: translateY(19px);
 }
-.intro-scope .hero-space > span,
 .intro-scope .altitude-caption,
 .intro-scope .altitude-message,
 .intro-scope .vision-copy {
   font-family: "Zen Old Mincho", serif;
 }
-.intro-scope .hero-space > span,
 .intro-scope .hero h1 {
   font-weight: 400;
-}
-.intro-scope .brand-cross {
-  width: 24px;
-  height: 54px;
 }
 .intro-scope .hero h1 {
   font-family: var(--font-body);
@@ -830,9 +799,6 @@ main > section {
 @media (min-width: 768px) {
   .intro-scope .hero-content {
     transform: translateY(min(9.6svh, 83px));
-  }
-  .intro-scope .hero-space > span {
-    line-height: 49px;
   }
   .intro-scope .hero h1 {
     font-size: clamp(28px, 2.5153vw, 38.031px);
@@ -878,7 +844,9 @@ main > section {
 .intro-scope .altitude-english {
   order: 3;
   color: #aaa;
-  font-size: 12.764px;
+  font-family: var(--font-body);
+  font-size: 12.8px;
+  font-weight: 700;
   line-height: 26px;
   letter-spacing: 0.1em;
 }
@@ -887,9 +855,9 @@ main > section {
   color: #fff;
   background: none;
   padding: 10px 11px;
-  font-size: clamp(24px, 2.412vw, 36.472px);
+  font-size: clamp(24px, 2.413333vw, 36.2px);
   font-weight: 400;
-  line-height: 1;
+  line-height: 0.999447514;
   letter-spacing: 0.1em;
 }
 .intro-scope h2.altitude-message {
@@ -899,10 +867,11 @@ main > section {
   order: 2;
   width: 100%;
   min-height: var(--intro-copy-height);
-  font-size: var(--intro-type);
-  font-weight: 400;
-  line-height: 1.4;
-  letter-spacing: 0.2em;
+  /* Keep --intro-copy-height unchanged: it also anchors the distance readout. */
+  font-size: clamp(32px, min(4.833333vw, 8.5svh), 72.5px);
+  font-weight: 700;
+  line-height: 1.399034483;
+  letter-spacing: 0.117103448em;
   margin: 0;
 }
 .intro-scope h2.altitude-message > span {
@@ -911,20 +880,9 @@ main > section {
   padding: 0;
   line-height: inherit;
 }
-.intro-scope #altitude-ground .altitude-caption,
-.intro-scope #altitude-title-ground,
-.intro-scope #altitude-10km .altitude-caption,
-.intro-scope #altitude-title-10km,
-.intro-scope #altitude-25km .altitude-caption,
-.intro-scope #altitude-title-25km,
-.intro-scope #altitude-100km .altitude-caption,
-.intro-scope #altitude-title-100km,
-.intro-scope #altitude-400km .altitude-caption,
-.intro-scope #altitude-title-400km,
-.intro-scope #altitude-moon .altitude-caption,
-.intro-scope #altitude-title-moon {
+.intro-scope .altitude-caption,
+.intro-scope h2.altitude-message {
   font-family: var(--font-body);
-  font-weight: 400;
 }
 .intro-scope .message-line {
   display: block;
@@ -936,14 +894,18 @@ main > section {
   order: 4;
 }
 .intro-scope .altitude-value {
-  font-size: calc(53.459px * var(--altitude-size-scale));
-  line-height: 1.34;
+  font-size: 40.7px;
+  line-height: 54.56px;
 }
 .intro-scope .altitude-label {
-  font-size: calc(25.459px * var(--altitude-size-scale));
+  font-family: var(--font-body);
+  font-size: 19.4px;
+  font-weight: 700;
+  line-height: 27.14px;
 }
 .intro-scope .distance {
-  font-size: calc(81.459px * var(--altitude-size-scale));
+  font-size: 62px;
+  line-height: 83.13px;
   color: var(--color-primary);
 }
 .intro-scope .altitude-readout .altitude-value {
@@ -1020,10 +982,6 @@ main > section {
     letter-spacing: 0.08em;
     margin-top: 32px;
   }
-  .intro-scope .brand-cross {
-    width: 13px;
-    height: 29px;
-  }
   .intro-scope .hero-english {
     font-size: 10px;
     letter-spacing: 0.12em;
@@ -1055,19 +1013,23 @@ main > section {
   }
   .intro-scope .altitude-caption {
     font-size: 17px;
-    font-weight: 700;
+    font-weight: 400;
     line-height: 24px;
     padding: 0;
   }
   .intro-scope h2.altitude-message {
+    font-size: clamp(22px, 6.666667vw, 26px);
     font-weight: 700;
-    line-height: 1.52;
-    letter-spacing: 0.075em;
+    line-height: 1.230769231;
+    letter-spacing: 0.05em;
   }
   .intro-scope #altitude-title-ground,
-  .intro-scope #altitude-title-25km,
-  .intro-scope #altitude-title-400km {
-    font-size: clamp(19px, 6.3vw, 31.8px);
+  .intro-scope #altitude-title-10km,
+  .intro-scope #altitude-title-25km {
+    line-height: 1.48;
+  }
+  .intro-scope #altitude-title-ground {
+    font-size: clamp(22px, 6.820513vw, 26.6px);
   }
   .intro-scope .altitude-measure {
     display: grid;
@@ -1097,15 +1059,15 @@ main > section {
   .intro-scope .altitude-origin {
     grid-column: 1 / -1;
     grid-row: 1;
-    font-size: 17px;
-    line-height: 24px;
+    font-size: 17.3px;
+    line-height: 24.37px;
   }
   .intro-scope .altitude-approx {
     grid-column: 1;
     grid-row: 2;
     padding-left: 0;
-    font-size: 27px;
-    line-height: 1;
+    font-size: 27.4px;
+    line-height: 27.42px;
     align-self: center;
   }
   .intro-scope .altitude-value {
@@ -1113,13 +1075,14 @@ main > section {
     grid-row: 2;
     position: relative;
     top: -6px;
-    font-size: clamp(34px, 9.479vw, 36.968px);
-    line-height: 1.4;
+    font-size: clamp(34px, 9.641026vw, 37.6px);
+    line-height: 1.39787234;
     text-align: left;
     white-space: nowrap;
   }
   .intro-scope .distance {
-    font-size: clamp(48px, 13.93vw, 54.317px);
+    font-size: clamp(48px, 14.128205vw, 55.1px);
+    line-height: 1.401270417;
     display: inline-block;
     width: auto;
     text-align: center;
