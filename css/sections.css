@@ -487,6 +487,7 @@
   text-align: center;
 }
 .cta {
+  cursor: pointer;
   background: var(--color-primary);
   color: #fff;
   display: flex;
@@ -501,6 +502,10 @@
   font-size: 15px;
   line-height: 1.7;
   letter-spacing: 0.08em;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 .cta > span:first-child {
   flex: 1;
@@ -518,6 +523,20 @@
 .cta-arrow img {
   width: 12px;
   height: 12px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .cta:hover {
+    background-color: #ad1b2a;
+    box-shadow: 0 8px 20px #0003;
+    transform: translateY(-3px);
+  }
+}
+.cta:focus-visible {
+  background-color: #ad1b2a;
+  box-shadow: 0 8px 20px #0003;
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  transform: translateY(-3px);
 }
 /* CONTACT：地球背景と問い合わせ導線。 */
 .contact {
@@ -846,8 +865,13 @@
   .news-row,
   .news-tag,
   .news-row > p,
-  .news-arrow {
+  .news-arrow,
+  .cta {
     transition: none;
+  }
+  .cta:hover,
+  .cta:focus-visible {
+    transform: none;
   }
   .has-reveal-motion .reveal-target {
     opacity: 1;
