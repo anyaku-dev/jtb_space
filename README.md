@@ -81,7 +81,7 @@ site/
 - **記事・コピー**：`index.html`。`news-row`、`domain-item`などの名前を付けています。DOMを追加・修正した後にビルドする必要はありません。
 - **セクションのスタイル**：ヘッダー／フッターは`css/corporate.css`、EARTH × SPACE〜CONTACTは`css/sections.css`、FV・高度体験・VISIONと共有月面背景は`css/intro.css`。各ファイル内でPC／SPと表示状態を調整します。CSSの読み込み順は`index.html`に記載した順序を維持してください。
 - **デザイン共通値**：`css/style.css`冒頭の`:root`。色、幅、余白、フォント、角丸をまとめています。
-- **高度の画像**：`intro-0km.webp`、`intro-10km-319b5f95.webp`、`intro-25km.webp`、`intro-100km.webp`、`intro-400km.webp`は各場面の`img`を差し替えます。0km・10km・400kmは支給PNGを元の解像度でWebP化しています。10kmのファイル名には更新前のキャッシュを避けるため内容の識別値を付けています。FVも0kmと同じ`intro-0km.webp`と切り取り位置を使用します。`intro-moon.webp`は`.intro-lunar-image`で38万km〜VISIONに使用。既存の`moon-surface.webp`と`.lunar-background`はDOMAINの表示を維持するため残しています。
+- **高度の画像**：`intro-0km.webp`、`intro-10km-68deccd0.webp`、`intro-25km.webp`、`intro-100km.webp`、`intro-400km-AdobeStock_145779274.webp`は各場面の`img`を差し替えます。0kmは支給PNGを元の解像度でWebP化しています。10km（「青い地球はまだ見えない」）は支給PNG `intro-10km-319b5f95.webp.png`を元の解像度（3000 × 1876）でWebP化しています。400km（「人類の次なる活動拠点へ」）は支給JPEG `AdobeStock_145779274.jpeg`を元の解像度（7000 × 3500）でWebP化しています。10kmのファイル名には更新前のキャッシュを避けるため内容の識別値を付けています。FVも0kmと同じ`intro-0km.webp`と切り取り位置を使用します。`intro-moon-4d3cae2e.webp`（支給PNG `4d3cae2e-7525-4029-9685-3e06aaa0c117 2 (1).png`を元の解像度3872 × 2178でWebP化）は`.intro-lunar-image`で38万km〜VISIONに使用。既存の`moon-surface.webp`と`.lunar-background`はDOMAINの表示を維持するため残しています。
 - **SIDEの背景**：`side-earth.webp`＝街並み、`side-connect.webp`＝スペースシャトル打ち上げ、`side-space.webp`＝地球と宇宙飛行士。
 - **リンク接続後**：必要な外部リンク・共通コンポーネントの動作は、導入先の環境で確認してください。
 
