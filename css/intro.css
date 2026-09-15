@@ -46,10 +46,14 @@ main > section {
   position: relative;
   isolation: isolate;
   background: #000;
+  /* sticky を維持したまま、延長した背景を DOMAIN の終端で切り取る。 */
+  overflow: clip;
 }
 .lunar-backdrop {
   position: absolute;
   inset: 0;
+  /* 最後の詳細を開閉しても、背景が親要素の下端に押し上げられないようにする。 */
+  bottom: calc(-1 * var(--screen-height));
   z-index: -1;
   pointer-events: none;
 }
