@@ -94,16 +94,16 @@ CSSの読み込み順は`index.html`に記載した順序を保ってくださ�
 
 ## 公開先への組み込み
 
-外部リンクは未接続です。ページ内ナビ、高度ナビ、SIDE切り替え、DOMAINの開閉は動作します。
+NEWSのイベント4件とPROJECT・CONTACTの外部リンクは設定済みです。ページ内ナビ、高度ナビ、SIDE切り替え、DOMAINの開閉は動作します。
 
-| 対象 | 必要な対応 |
+| 対象 | 設定状況・必要な対応 |
 | --- | --- |
-| NEWS | 各記事のリンク先を設定 |
-| PROJECT | `data-link-pending="project"`のCTAにリンク先を設定（予定URL：`https://open-universe-project.jp/`） |
-| CONTACT | `data-link-pending="contact"`のCTAにお問い合わせ先を設定。フォーム本体は含みません |
+| NEWS | イベント4件のリンクを設定済み。ホームページ公開・TeNQはリンク先未設定、グループ発足のお知らせはリンクなし |
+| PROJECT | CTAに`https://open-universe-project.jp/`を設定済み |
+| CONTACT | CTAに`https://www.jtbbwt.com/business/contact/`を設定済み。フォーム本体は含みません |
 | 共通ヘッダー・フッター | `data-common-header`・`data-common-footer`の要素を導入先の共通部品に差し替え |
 
-CTAを接続する際は、外側の`span.cta`を`a.cta`に変更し、確定した`href`を設定してください。共通ヘッダー・フッターの検索や各導線も、導入先の部品で実装してください。
+PROJECT・CONTACTのリンク先は、`a.cta`の`href`で変更できます。共通ヘッダー・フッターの検索や各導線も、導入先の部品で実装してください。
 
 共通ヘッダーの高さを変える場合は、`css/style.css`の`--header-height`・`--page-nav-height`も合わせて調整してください。ページ内移動や固定表示の位置に使用しています。
 

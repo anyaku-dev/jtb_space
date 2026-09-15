@@ -404,8 +404,8 @@
   width: 12px;
   height: 12px;
 }
-.news-row:first-child .news-arrow,
-.news-row:last-child .news-arrow {
+.news-list > li:first-child .news-arrow,
+.news-list > li:last-child .news-arrow {
   visibility: hidden;
 }
 @media (hover: hover) and (pointer: fine) {
