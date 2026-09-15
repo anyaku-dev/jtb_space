@@ -257,8 +257,8 @@
   line-height: 1.4;
 }
 .domain h3 {
-  font-family: "Zen Old Mincho", serif;
-  font-weight: 400;
+  font-family: var(--font-body);
+  font-weight: 700;
   font-size: 35px;
   line-height: 1.5;
   margin-top: 10px;
