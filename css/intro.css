@@ -868,7 +868,7 @@ main > section {
   width: 100%;
   min-height: var(--intro-copy-height);
   /* Keep --intro-copy-height unchanged: it also anchors the distance readout. */
-  font-size: clamp(32px, min(4.833333vw, 8.5svh), 72.5px);
+  font-size: calc(clamp(32px, min(4.833333vw, 8.5svh), 72.5px) - 5px);
   font-weight: 700;
   line-height: 1.399034483;
   letter-spacing: 0.117103448em;
@@ -948,8 +948,9 @@ main > section {
   margin: 0;
 }
 .intro-scope .vision-copy {
+  font-family: var(--font-body);
   font-size: clamp(24px, 2.5vw, 38px);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 2.4524;
   letter-spacing: 0.1em;
 }
@@ -1019,7 +1020,7 @@ main > section {
     padding: 0;
   }
   .intro-scope h2.altitude-message {
-    font-size: clamp(22px, 6.666667vw, 26px);
+    font-size: calc(clamp(22px, 6.666667vw, 26px) + 3px);
     font-weight: 700;
     line-height: 1.230769231;
     letter-spacing: 0.05em;
@@ -1030,7 +1031,7 @@ main > section {
     line-height: 1.48;
   }
   .intro-scope #altitude-title-ground {
-    font-size: clamp(22px, 6.820513vw, 26.6px);
+    font-size: calc(clamp(22px, 6.820513vw, 26.6px) + 3px);
   }
   .intro-scope .altitude-measure {
     display: grid;
