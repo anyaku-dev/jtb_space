@@ -175,6 +175,7 @@
     const lunarScope = $(".lunar-scope");
     const introLunarImage = $(".intro-lunar-image");
     const introScope = $(".intro-scope");
+    const viewportStage = $(".lunar-backdrop-stage");
     const journey = $(".journey");
     const stage = $(".journey-stage");
     const hero = $(".hero");
@@ -202,7 +203,8 @@
     const SCENE_ZOOM_LIMIT = 0.08;
     const SCENE_ZOOM_TIME = 16000;
     let displayedAltitude = 0;
-    let animated = false;
+    // 初回が静的表示でも、本文をすべて読める状態に初期化する。
+    let animated = null;
     let activeScene = -2;
     let animationFrame = 0;
     let countAnimation = null;
@@ -423,12 +425,19 @@
     // 画面サイズに応じて、固定演出の可否とスクロール基準を再計測する。
     function measure() {
       positionCards();
-      // 横長で低い画面は、固定せず読みやすい通常レイアウトにする。
+      // CSS と同じ安定した画面高を使い、スマホのバー伸縮で演出を切り替えない。
+      const viewportHeight = viewportStage.getBoundingClientRect().height;
       const fixedHeight = $(".fixed-page-navigation").getBoundingClientRect()
         .bottom;
-      const minimumHeight = narrowScreen.matches ? 650 : fixedHeight + 550;
+      const regularHeight = narrowScreen.matches ? 650 : fixedHeight + 550;
+      // 通常のノートPCではコンパクト配置を使う。極端に低い画面だけ通常フローへ。
+      const minimumHeight = narrowScreen.matches ? 480 : fixedHeight + 320;
       const nextAnimated =
-        !reducedMotion.matches && window.innerHeight >= minimumHeight;
+        !reducedMotion.matches && viewportHeight >= minimumHeight;
+      journey.classList.toggle(
+        "is-compact",
+        nextAnimated && viewportHeight < regularHeight,
+      );
       if (animated !== nextAnimated) {
         animated = nextAnimated;
         lunarScope.classList.toggle("has-animated-journey", animated);
