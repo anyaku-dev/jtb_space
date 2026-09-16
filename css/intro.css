@@ -1330,6 +1330,29 @@ main > section {
   }
 }
 
+/* 配置を維持したまま、OSが不要としている動きだけを止める。 */
+.lunar-scope.is-reduced-motion .intro-scope *,
+.lunar-scope.is-reduced-motion .lunar-backdrop-stage {
+  animation: none !important;
+  transition: none !important;
+}
+.lunar-scope.is-reduced-motion .message-character {
+  opacity: 1 !important;
+}
+.lunar-scope.is-reduced-motion .scroll-cue-arrow {
+  opacity: 1;
+  transform: translateY(calc(var(--scroll-arrow-size) * 0.35));
+}
+.lunar-scope.is-reduced-motion .scroll-cue-arrow:nth-child(n + 2) {
+  display: none;
+}
+.lunar-scope.is-reduced-motion :is(
+  .scene-image, .intro-lunar-image, .lunar-background, .mobile-journey-image
+) {
+  scale: 1 !important;
+  will-change: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scroll-cue-arrow {
     animation: none;

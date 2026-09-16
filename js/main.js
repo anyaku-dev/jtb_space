@@ -204,7 +204,9 @@
     const SCENE_ZOOM_TIME = 16000;
     let displayedAltitude = 0;
     // 初回が静的表示でも、本文をすべて読める状態に初期化する。
+    // animated は1画面ずつ切り替える配置の可否。動きの設定とは分ける。
     let animated = null;
+    let motionReduced = null;
     let activeScene = -2;
     let animationFrame = 0;
     let countAnimation = null;
@@ -265,7 +267,7 @@
     }
     function updateSceneZoom(now) {
       zoomFrame = 0;
-      if (!zoomAnimation || !animated || document.hidden) return;
+      if (!zoomAnimation || !animated || motionReduced || document.hidden) return;
       if (zoomAnimation.lastFrame !== null) {
         zoomAnimation.elapsed += now - zoomAnimation.lastFrame;
       }
@@ -287,7 +289,7 @@
     function syncSceneZoom() {
       // VISION が入り始めたら共有する月面のズームを止める。
       const inJourney = window.scrollY + metrics.height <= metrics.visionTop;
-      if (!zoomAnimation || !inJourney || document.hidden) {
+      if (!zoomAnimation || motionReduced || !inJourney || document.hidden) {
         pauseSceneZoom();
         return;
       }
@@ -323,7 +325,7 @@
       activeScene = index;
       pauseSceneZoom();
       zoomAnimation =
-        index >= 0
+        index >= 0 && !motionReduced
           ? { image: sceneImages[index], elapsed: 0, lastFrame: null }
           : null;
       // 入場する画像だけを戻し、退場する画像は crop を保って消す。
@@ -355,7 +357,13 @@
         // 途中再読み込み時は、旅を再生せず現在高度をそのまま表示する。
         const from = previous >= 0 ? displayedAltitude : targets[index];
         readoutAccessible.textContent = `${finalLabels[index]}km`;
-        countAnimation = { index, from, to: targets[index], start: now };
+        if (motionReduced) {
+          displayedAltitude = targets[index];
+          readoutDistance.textContent = finalLabels[index];
+          countAnimation = null;
+        } else {
+          countAnimation = { index, from, to: targets[index], start: now };
+        }
       } else {
         countAnimation = null;
       }
@@ -390,7 +398,9 @@
       syncSceneZoom();
       const startShade = 0.85;
       $(".hero-shade").style.opacity = String(
-        startShade - clamp(travel / HERO_DISTANCE) * (startShade - 0.2),
+        motionReduced
+          ? startShade
+          : startShade - clamp(travel / HERO_DISTANCE) * (startShade - 0.2),
       );
       syncMobileBackdrop();
       if (countAnimation) {
@@ -413,7 +423,9 @@
         (window.scrollY - metrics.visionTop + metrics.height * 0.08) /
           (metrics.visionTravel * 0.86),
       );
-      const nextCount = Math.round(progress * visionCharacters.length);
+      const nextCount = motionReduced
+        ? visionCharacters.length
+        : Math.round(progress * visionCharacters.length);
       if (nextCount !== readCount) {
         visionCharacters.forEach((character, index) =>
           character.classList.toggle("is-read", index < nextCount),
@@ -432,40 +444,53 @@
       const regularHeight = narrowScreen.matches ? 650 : fixedHeight + 550;
       // 通常のノートPCではコンパクト配置を使う。極端に低い画面だけ通常フローへ。
       const minimumHeight = narrowScreen.matches ? 480 : fixedHeight + 320;
-      const nextAnimated =
-        !reducedMotion.matches && viewportHeight >= minimumHeight;
+      const nextAnimated = viewportHeight >= minimumHeight;
+      const nextReduced = reducedMotion.matches;
       journey.classList.toggle(
         "is-compact",
         nextAnimated && viewportHeight < regularHeight,
       );
-      if (animated !== nextAnimated) {
+      if (animated !== nextAnimated || motionReduced !== nextReduced) {
         animated = nextAnimated;
+        motionReduced = nextReduced;
         lunarScope.classList.toggle("has-animated-journey", animated);
+        lunarScope.classList.toggle("is-reduced-motion", motionReduced);
         journey.classList.toggle("is-animated", animated);
-        vision.classList.toggle("is-animated", animated);
+        vision.classList.toggle("is-animated", animated && !motionReduced);
         showAllContent();
+      }
+      if (!animated || motionReduced) {
+        visionStage.style.top = "";
+        vision.style.removeProperty("--vision-height");
       }
       if (animated) {
         const height = stage.getBoundingClientRect().height;
-        const visionHeight = Math.max(
-          height,
-          visionContent.getBoundingClientRect().height,
-        );
-        vision.style.setProperty(
-          "--vision-height",
-          `${Math.ceil(visionHeight)}px`,
-        );
-        visionStage.style.top = `${Math.min(0, height - visionHeight)}px`;
+        if (!motionReduced) {
+          const visionHeight = Math.max(
+            height,
+            visionContent.getBoundingClientRect().height,
+          );
+          vision.style.setProperty(
+            "--vision-height",
+            `${Math.ceil(visionHeight)}px`,
+          );
+          visionStage.style.top = `${Math.min(0, height - visionHeight)}px`;
+        }
         metrics = {
           height,
           journeyTop: journey.getBoundingClientRect().top + window.scrollY,
           visionTop: vision.getBoundingClientRect().top + window.scrollY,
           visionTravel: Math.max(1, vision.offsetHeight - height),
         };
-      } else {
-        visionStage.style.top = "";
-        vision.style.removeProperty("--vision-height");
       }
+      // 診断URLで表示する値。通常のページには診断UIを出さない。
+      journey.dataset.displayMode = !animated
+        ? "static-height"
+        : motionReduced
+          ? "reduced-motion"
+          : "animated";
+      journey.dataset.viewportHeight = String(Math.round(viewportHeight));
+      journey.dataset.minimumHeight = String(Math.ceil(minimumHeight));
       syncMobileBackdrop();
       requestUpdate();
     }
