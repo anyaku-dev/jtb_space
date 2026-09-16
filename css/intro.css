@@ -1243,6 +1243,93 @@ main > section {
   }
 }
 
+/* 以前は縦並びに切り替えていた低い画面だけ、固定演出の余白を調整する。 */
+.journey.is-animated.is-compact .journey-stage {
+  min-height: 0;
+}
+@media (min-width: 768px) {
+  .intro-scope .journey.is-compact {
+    --intro-type: clamp(
+      24px,
+      min(4.83vw, calc((var(--screen-height) - var(--fixed-height)) * 0.085)),
+      46px
+    );
+    --intro-copy-height: calc(var(--intro-type) * 2.8);
+  }
+  .intro-scope .journey.is-compact .journey-stage {
+    --compact-copy-center: calc(
+      var(--fixed-height) + (100% - var(--fixed-height) - 80px) / 2 - 38px
+    );
+    --altitude-readout-top: calc(
+      var(--compact-copy-center) + var(--intro-copy-height) / 2 + 76px
+    );
+  }
+  .intro-scope .journey.is-compact .hero-content {
+    transform: translateY(calc(var(--fixed-height) / 2 - 30px));
+  }
+  .intro-scope .journey.is-compact .hero-brand {
+    min-height: 0;
+  }
+  .intro-scope .journey.is-compact .hero-brand-image {
+    width: min(280px, 100%);
+  }
+  .intro-scope .journey.is-compact .hero h1 {
+    font-size: clamp(22px, min(2.5153vw, 4.8svh), 34px);
+    line-height: 1.6;
+    margin-top: 14px;
+  }
+  .intro-scope .journey.is-compact .hero-english {
+    margin-top: 14px;
+  }
+  .intro-scope .journey.is-compact .altitude-copy {
+    top: var(--compact-copy-center);
+  }
+  .intro-scope .journey.is-compact .altitude-message {
+    font-size: var(--intro-type);
+  }
+  .intro-scope .journey.is-compact .altitude-heading {
+    bottom: calc(100% + 12px);
+  }
+  .intro-scope .journey.is-compact .altitude-caption {
+    padding: 0;
+    font-size: clamp(18px, 3.5svh, 24px);
+    line-height: 1.2;
+  }
+  .intro-scope .journey.is-compact .altitude-english {
+    top: calc(100% + 12px);
+    font-size: 11px;
+    line-height: 20px;
+  }
+  .intro-scope .journey.is-compact .altitude-label {
+    font-size: 17px;
+  }
+  .intro-scope .journey.is-compact .altitude-value {
+    font-size: 30px;
+    line-height: 42px;
+  }
+  .intro-scope .journey.is-compact .distance {
+    font-size: 46px;
+    line-height: 62px;
+  }
+  .intro-scope .journey.is-compact .altitude-nav {
+    top: calc(var(--fixed-height) + (100% - var(--fixed-height) - 80px) / 2);
+    gap: 4px;
+  }
+  .intro-scope .journey.is-compact .altitude-nav > a {
+    min-height: clamp(
+      32px,
+      calc((var(--screen-height) - var(--fixed-height) - 116px) / 6),
+      40px
+    );
+  }
+}
+@media (max-width: 767px) {
+  .intro-scope .journey.is-compact h2.altitude-message,
+  .intro-scope .journey.is-compact #altitude-title-ground {
+    font-size: clamp(20px, 6.4vw, 26px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .scroll-cue-arrow {
     animation: none;
