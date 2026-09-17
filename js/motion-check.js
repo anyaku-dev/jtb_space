@@ -38,7 +38,7 @@
     const mode = journey?.dataset.displayMode;
     const modes = {
       animated: "1画面ずつ（通常の演出）",
-      "reduced-motion": "1画面ずつ（動きを抑える）",
+      "content-motion": "1画面ずつ（数値・文字の演出あり／背景の動きを抑える）",
       "static-height": "縦並び（画面の高さ不足）",
     };
     const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
