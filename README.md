@@ -108,11 +108,11 @@ URLに`?motion-check=1`を付けると、その端末の「動きを減らす」
 
 ## 公開先への組み込み
 
-NEWSのイベント4件とPROJECT・CONTACTの外部リンクは設定済みです。ページ内ナビ、高度ナビ、SIDE切り替え、DOMAINの開閉は動作します。
+NEWSのTeNQニュースリリース・イベント4件とPROJECT・CONTACTの外部リンクは設定済みです。ページ内ナビ、高度ナビ、SIDE切り替え、DOMAINの開閉は動作します。
 
 | 対象 | 設定状況・必要な対応 |
 | --- | --- |
-| NEWS | イベント4件のリンクを設定済み。ホームページ公開・TeNQはリンク先未設定、グループ発足のお知らせはリンクなし |
+| NEWS | TeNQニュースリリース・イベント4件のリンクを設定済み。ホームページ公開はリンク先未設定、グループ発足のお知らせはリンクなし |
 | PROJECT | CTAに`https://open-universe-project.jp/`を設定済み |
 | CONTACT | CTAに`https://www.jtbbwt.com/business/contact/`を設定済み。フォーム本体は含みません |
 | 共通ヘッダー・フッター | `data-common-header`・`data-common-footer`の要素を導入先の共通部品に差し替え |
