@@ -955,7 +955,7 @@ main > section {
   font-family: var(--font-body);
   font-size: clamp(24px, 2.5vw, 38px);
   font-weight: 700;
-  line-height: 2.4524;
+  line-height: 1.9;
   letter-spacing: 0.1em;
 }
 .intro-scope .vision-year,
@@ -963,7 +963,7 @@ main > section {
   font-size: inherit;
 }
 .intro-scope .vision-paragraph + .vision-paragraph {
-  margin-top: 2.4524em;
+  margin-top: 1.9em;
 }
 @media (max-width: 767px) {
   .intro-scope {
@@ -1134,7 +1134,7 @@ main > section {
   }
   .intro-scope .vision-copy {
     font-size: clamp(17px, 4.4vw, 24px);
-    line-height: 2.45;
+    line-height: 1.9;
     letter-spacing: 0.05em;
   }
 }
