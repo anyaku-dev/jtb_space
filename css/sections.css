@@ -554,6 +554,12 @@
   height: 100%;
   object-fit: cover;
 }
+/* ワイド画面でも地球の上端がロゴ側へせり上がらないようにする。 */
+@media (min-width: 1700px) {
+  .contact-background {
+    object-fit: contain;
+  }
+}
 .contact-content {
   width: min(840px, calc(100% - 2 * var(--gutter)));
   display: flex;
@@ -562,6 +568,8 @@
 }
 .contact-logo {
   width: 228px;
+  /* ステートメントを地球の明るい雲から離し、本文の位置は維持する。 */
+  transform: translateY(-64px);
 }
 .contact-copy {
   display: grid;
@@ -812,11 +820,13 @@
   }
   .contact-copy {
     /* Figmaの固定テキスト枠からはみ出す3行を、通常の行ボックスで再現。 */
-    margin-top: 16px;
+    /* 見出しを雲の帯より下へ。ロゴは従来の黒い空の領域に残す。 */
+    margin-top: 88px;
     gap: 35px;
   }
   .contact-logo {
     width: 152px;
+    transform: none;
   }
   .contact h2 {
     font-size: 27px;
