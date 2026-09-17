@@ -357,13 +357,9 @@
         // 途中再読み込み時は、旅を再生せず現在高度をそのまま表示する。
         const from = previous >= 0 ? displayedAltitude : targets[index];
         readoutAccessible.textContent = `${finalLabels[index]}km`;
-        if (motionReduced) {
-          displayedAltitude = targets[index];
-          readoutDistance.textContent = finalLabels[index];
-          countAnimation = null;
-        } else {
-          countAnimation = { index, from, to: targets[index], start: now };
-        }
+        // 数値とVISIONの読ませる演出は、端末設定によらず共通にする。
+        // 動きを減らす設定は、背景ズーム等の装飾的な動きにのみ適用する。
+        countAnimation = { index, from, to: targets[index], start: now };
       } else {
         countAnimation = null;
       }
@@ -423,9 +419,7 @@
         (window.scrollY - metrics.visionTop + metrics.height * 0.08) /
           (metrics.visionTravel * 0.86),
       );
-      const nextCount = motionReduced
-        ? visionCharacters.length
-        : Math.round(progress * visionCharacters.length);
+      const nextCount = Math.round(progress * visionCharacters.length);
       if (nextCount !== readCount) {
         visionCharacters.forEach((character, index) =>
           character.classList.toggle("is-read", index < nextCount),
@@ -456,26 +450,24 @@
         lunarScope.classList.toggle("has-animated-journey", animated);
         lunarScope.classList.toggle("is-reduced-motion", motionReduced);
         journey.classList.toggle("is-animated", animated);
-        vision.classList.toggle("is-animated", animated && !motionReduced);
+        vision.classList.toggle("is-animated", animated);
         showAllContent();
       }
-      if (!animated || motionReduced) {
+      if (!animated) {
         visionStage.style.top = "";
         vision.style.removeProperty("--vision-height");
       }
       if (animated) {
         const height = stage.getBoundingClientRect().height;
-        if (!motionReduced) {
-          const visionHeight = Math.max(
-            height,
-            visionContent.getBoundingClientRect().height,
-          );
-          vision.style.setProperty(
-            "--vision-height",
-            `${Math.ceil(visionHeight)}px`,
-          );
-          visionStage.style.top = `${Math.min(0, height - visionHeight)}px`;
-        }
+        const visionHeight = Math.max(
+          height,
+          visionContent.getBoundingClientRect().height,
+        );
+        vision.style.setProperty(
+          "--vision-height",
+          `${Math.ceil(visionHeight)}px`,
+        );
+        visionStage.style.top = `${Math.min(0, height - visionHeight)}px`;
         metrics = {
           height,
           journeyTop: journey.getBoundingClientRect().top + window.scrollY,
@@ -487,7 +479,7 @@
       journey.dataset.displayMode = !animated
         ? "static-height"
         : motionReduced
-          ? "reduced-motion"
+          ? "content-motion"
           : "animated";
       journey.dataset.viewportHeight = String(Math.round(viewportHeight));
       journey.dataset.minimumHeight = String(Math.ceil(minimumHeight));
