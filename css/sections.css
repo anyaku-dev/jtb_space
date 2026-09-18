@@ -486,6 +486,12 @@
   max-width: 760px;
   text-align: center;
 }
+.project-copy > span {
+  display: block;
+}
+.project-copy-mobile-break {
+  display: none;
+}
 .cta {
   cursor: pointer;
   background: var(--color-primary);
@@ -807,6 +813,9 @@
     line-height: 26px;
     width: 100%;
   }
+  .project-copy-mobile-break {
+    display: inline;
+  }
   .cta {
     width: 100%;
     min-height: 56px;
@@ -864,6 +873,17 @@
   .bottom-navigation {
     padding: 21px 24px;
     height: 88px;
+  }
+}
+
+/* 幅320px級でもプロジェクト説明を指定の4行で読める幅に保つ。 */
+@media (max-width: 359px) {
+  .project-card {
+    padding-inline: 11px;
+  }
+  .project-card > p {
+    font-size: 13px;
+    line-height: 24px;
   }
 }
 

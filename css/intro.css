@@ -135,13 +135,13 @@ main > section {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* ロゴ変更前の行高を保ち、コピーの位置を維持する。 */
+  /* ロゴの差し替え後も、見出しとの間隔を安定させる。 */
   min-height: 91.2px;
 }
 .hero-brand-image {
   width: min(362.73px, 100%);
   height: auto;
-  aspect-ratio: 362.73 / 81.55;
+  aspect-ratio: 696 / 164;
   object-fit: contain;
 }
 .hero h1 {
@@ -578,7 +578,7 @@ main > section {
     min-height: 50.4px;
   }
   .hero-brand-image {
-    /* 変更前のSPロゴ全体の実測幅に合わせる。 */
+    /* SPではファーストビュー内での視認性を優先する。 */
     width: min(197.953125px, 100%);
   }
   .hero h1 {
