@@ -823,6 +823,20 @@ main > section {
   transform: none;
   object-position: center;
 }
+.altitude-image-credit {
+  position: absolute;
+  right: 24px;
+  bottom: 20px;
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+  text-shadow: 0 1px 4px #000;
+}
 .intro-scope .altitude-scene[data-scene="3"] .scene-image {
   transform: scale(1.255);
   transform-origin: center top;
@@ -1205,6 +1219,11 @@ main > section {
   .mobile-journey-image[data-scene="2"] {
     transform: none;
     object-position: center;
+  }
+  .altitude-image-credit {
+    right: max(16px, env(safe-area-inset-right, 0px));
+    bottom: calc(16px + var(--safe-bottom));
+    font-size: 10px;
   }
   .mobile-journey-image[data-scene="3"] {
     transform: scale(1.255);
