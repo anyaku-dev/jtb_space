@@ -819,8 +819,9 @@ main > section {
   transform: none;
 }
 .intro-scope .altitude-scene[data-scene="2"] .scene-image {
-  transform: rotate(180deg) scale(1.21);
-  object-position: center 46%;
+  /* 添付の地球写真は正位置のまま、空と地平線を見せる。 */
+  transform: none;
+  object-position: center;
 }
 .intro-scope .altitude-scene[data-scene="3"] .scene-image {
   transform: scale(1.255);
@@ -1202,8 +1203,8 @@ main > section {
     object-position: 43.5% center;
   }
   .mobile-journey-image[data-scene="2"] {
-    transform: rotate(180deg) scale(1.21);
-    object-position: center 46%;
+    transform: none;
+    object-position: center;
   }
   .mobile-journey-image[data-scene="3"] {
     transform: scale(1.255);
